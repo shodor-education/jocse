@@ -1,0 +1,16 @@
+main {
+  @extend %page-width;
+  background-color: white;
+  border: 1px solid #0033CC;
+
+  & > div {
+    padding: 20px;
+
+    h1 {
+      border-bottom: 1px solid #d1d1d3;
+      font-size: 1.8em;
+      margin: 0;
+      margin-bottom: 15px;
+    }
+  }
+}

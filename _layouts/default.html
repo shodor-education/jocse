@@ -1,0 +1,48 @@
+---
+---
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Journal of Computational Science Education: {{ page.title }}</title>
+    <link rel="icon" type="image/ico" href="{{ 'favicon.ico' | relative_url }}">
+    <link rel="stylesheet" href="{{ 'css/main.css' | relative_url }}">
+    <script src="{{ 'js/main.js' | relative_url }}"></script>
+  </head>
+  <body>
+    <header>
+      <a id="header-logo" href="{{ site.url }}"><img
+          src="{{ 'img/header-logo.png' | relative_url }}"
+          alt="Journal of Computational Science Education (JOCSE) logo"/></a>
+    </header>
+    <nav id="site-nav">
+      <ul>
+        <li>HOME</li>
+        <li>EDITORIAL</li>
+        <li>ISSUES</li>
+        <li>SUBMISSION</li>
+        <li>BROWSE</li>
+      </ul>
+    </nav>
+    <main>
+      <div>
+        {% unless page.hide-h1 %}
+          <h1>{{ page.title }}</h1>
+        {% endunless %}
+        {{ content }}
+      </div>
+    </main>
+    <footer>
+      <div>
+        <span>
+          <a href="http://www.shodor.org">&copy;
+            1994–{{ "now" | date: "%Y" }} Shodor</a>
+        </span>
+        <span id="issn-link">
+          <a href="{{ 'about' | relative_url }}">ISSN 2153-4136</a>
+        </span>
+        <span></span>
+      </div>
+    </footer>
+  </body>
+</html>

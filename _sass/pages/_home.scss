@@ -1,0 +1,15 @@
+#splash-section {
+  background-image: url('#{$img-dir-url}/home-splash.jpeg');
+  margin: 0 auto;
+  padding-bottom: 80px;
+  padding-left: 184px;
+  padding-right: 151px;
+  padding-top: 80px;
+  text-align: center;
+  width: 420px;
+
+  h2 {
+    font-size: larger;
+    margin: 0;
+  }
+}

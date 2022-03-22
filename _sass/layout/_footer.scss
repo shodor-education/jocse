@@ -1,0 +1,29 @@
+footer {
+  @extend %bg-img;
+  background-image: url('#{$img-dir-url}/footer-bg.jpeg');
+  color: white;
+  font-size: 15px;
+  padding: 10px;
+
+  & > div {
+    @extend %page-width;
+    align-items: center;
+    background-image: url('#{$img-dir-url}/footer-logos.gif');
+    display: flex;
+    height: 35px;
+
+    & > span {
+      flex: 1;
+    }
+
+    a:link,
+    a:visited {
+      color: white;
+      text-decoration: none;
+    }
+
+    #issn-link {
+      text-align: center;
+    }
+  }
+}
