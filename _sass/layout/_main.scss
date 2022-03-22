@@ -1,7 +1,10 @@
 main {
-  @extend %page-width;
   background-color: white;
   border: 1px solid #0033CC;
+  border-bottom: 0;
+  border-top: 0;
+  margin: 0 auto;
+  width: $page-width - 2;
 
   & > div {
     padding: 20px;

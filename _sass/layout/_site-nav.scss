@@ -1,5 +1,6 @@
 #site-nav {
-  @extend %page-width;
+  margin: 0 auto;
+  width: $page-width;
 
   ul {
     display: flex;

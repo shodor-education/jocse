@@ -10,11 +10,6 @@ $img-dir-url: {{ 'img' | relative_url }};
 
 $page-width: 800px;
 
-%page-width {
-  margin: 0 auto;
-  width: $page-width;
-}
-
 @import 'base';
 @import 'layout/body';
 @import 'layout/footer';

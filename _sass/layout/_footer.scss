@@ -6,11 +6,12 @@ footer {
   padding: 10px;
 
   & > div {
-    @extend %page-width;
     align-items: center;
     background-image: url('#{$img-dir-url}/footer-logos.gif');
     display: flex;
     height: 35px;
+    margin: 0 auto;
+    width: $page-width;
 
     & > span {
       flex: 1;

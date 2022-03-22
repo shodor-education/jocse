@@ -1,7 +1,18 @@
 body {
   @extend %bg-img;
   background-image: url('#{$img-dir-url}/body-bg.jpeg');
-  font-family: 'Helvetica', Arial, sans-serif;
+  font-family: Helvetica, Arial, sans-serif;
   margin: 0;
   min-width: $page-width;
+}
+
+p {
+  font-size: 14px;
+  font-family: Verdana, Helvetica, sans-serif;
+  margin: 0 0 1em 0;
+  padding: 0;
+
+  a:link {
+    color: #003c9c;
+  }
 }

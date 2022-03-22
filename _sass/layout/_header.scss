@@ -1,6 +1,7 @@
 header {
   #header-logo {
-    @extend %page-width;
     display: block;
+    margin: 0 auto;
+    width: $page-width;
   }
 }
