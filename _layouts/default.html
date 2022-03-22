@@ -17,11 +17,20 @@
     </header>
     <nav id="site-nav">
       <ul>
-        <li><a href="{{ site.url }}">HOME</a></li>
-        <li><a href="{{ 'editorialBoard' | relative_url }}">EDITORIAL</a></li>
-        <li><a href="{{ 'issues' | relative_url }}">ISSUES</a></li>
-        <li><a href="{{ 'submitProcedure' | relative_url }}">SUBMISSION</a></li>
-        <li><a href="{{ 'catalog/browse' | relative_url }}">BROWSE</a></li>
+        {% for nav-link in site.data.nav-links %}
+          <li>
+            <a href="{{ nav-link.url }}">{{ nav-link.label }}</a>
+            {% if nav-link.sublinks %}
+              <ul class="sublist">
+                {% for nav-sublink in nav-link.sublinks %}
+                  <li>
+                    <a href="{{ nav-sublink.url }}">{{ nav-sublink.label }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            {% endif %}
+          </li>
+        {% endfor %}
       </ul>
     </nav>
     <main>
