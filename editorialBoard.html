@@ -2,13 +2,8 @@
 layout: "default"
 title: "Editorial Board"
 ---
-{% for editor in site.data.editors %}
-  <section class="editor-info">
-    <h2>{{ editor.name }}</h2>
-    <p>
-      <em>{{ editor.role }}</em><br/>
-      Review Area: {{ editor.review-area }}<br/>
-      {{ editor.affiliation }}
-    </p>
-  </section>
+{% for staff-member in site.data.editors %}
+  {% for staff-member in site.data.current-technical-staff %}
+    {% include staff-info.html staff-member=staff-member %}
+  {% endfor %}
 {% endfor %}

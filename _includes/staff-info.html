@@ -1,0 +1,10 @@
+<section class="staff-info">
+  <h3>{{ include.staff-member.name }}</h2>
+  <p>
+    <em>{{ include.staff-member.role }}</em><br/>
+    {% if include.staff-member.review-area %}
+      Review Area: {{ include.staff-member.review-area }}<br/>
+    {% endif %}
+    {{ include.staff-member.affiliation }}
+  </p>
+</section>

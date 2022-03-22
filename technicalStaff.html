@@ -1,0 +1,16 @@
+---
+layout: "default"
+title: "Technical Staff"
+---
+<section class="technical-staff-section">
+  <h2>Current Technical Staff</h2>
+  {% for staff-member in site.data.current-technical-staff %}
+    {% include staff-info.html staff-member=staff-member %}
+  {% endfor %}
+</section>
+<section class="technical-staff-section">
+  <h2>Emeriti Technical Staff</h2>
+  {% for staff-member in site.data.emeriti-technical-staff %}
+    {% include staff-info.html staff-member=staff-member %}
+  {% endfor %}
+</section>

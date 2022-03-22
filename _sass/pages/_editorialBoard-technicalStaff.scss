@@ -1,0 +1,14 @@
+.staff-info {
+  h2,
+  h3 {
+    @extend %p-font;
+    margin-bottom: 0;
+  }
+}
+
+.technical-staff-section {
+  h2 {
+    @extend %p-font;
+    text-decoration: underline;
+  }
+}
