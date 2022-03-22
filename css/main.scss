@@ -6,7 +6,17 @@
   background-size: 100% 2000px;
 }
 
+%body-font {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 12pt;
+}
+
 $img-dir-url: {{ 'img' | relative_url }};
+
+%p-font {
+  font-family: Verdana, Helvetica, sans-serif;
+  font-size: 14px;
+}
 
 $page-width: 800px;
 
@@ -17,4 +27,5 @@ $page-width: 800px;
 @import 'layout/main';
 @import 'layout/site-nav';
 @import 'pages/about';
+@import 'pages/editorialBoard';
 @import 'pages/home';

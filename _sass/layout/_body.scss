@@ -1,15 +1,13 @@
 body {
   @extend %bg-img;
+  @extend %body-font;
   background-image: url('#{$img-dir-url}/body-bg.jpeg');
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 12pt;
   margin: 0;
   min-width: $page-width;
 }
 
 p {
-  font-family: Verdana, Helvetica, sans-serif;
-  font-size: 14px;
+  @extend %p-font;
   margin: 0 0 1em 0;
   padding: 0;
 

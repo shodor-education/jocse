@@ -1,0 +1,14 @@
+---
+layout: "default"
+title: "Editorial Board"
+---
+{% for editor in site.data.editors %}
+  <section class="editor-info">
+    <h2>{{ editor.name }}</h2>
+    <p>
+      <em>{{ editor.role }}</em><br/>
+      Review Area: {{ editor.review-area }}<br/>
+      {{ editor.affiliation }}
+    </p>
+  </section>
+{% endfor %}
