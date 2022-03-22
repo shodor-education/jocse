@@ -8,17 +8,23 @@
     padding: 0;
 
     li {
-      background: linear-gradient(
-        #46a6a4, #50c8ed 10%, #061763
-      );
-      border: 1px solid #003c9c;
-      border-radius: 5px;
-      color: white;
+      display: flex;
       flex: 1;
-      font-weight: bold;
       list-style-type: none;
-      padding: 5px 0;
-      text-align: center;
+
+      a {
+        background: linear-gradient(
+          #46a6a4, #50c8ed 10%, #061763
+        );
+        border: 1px solid #003c9c;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+        padding: 5px 0;
+        text-align: center;
+        text-decoration: none;
+        width: 100%;
+      }
     }
   }
 }
