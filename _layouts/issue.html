@@ -9,8 +9,8 @@ layout: "default"
 {% capture full-issue-title %}The Journal of Computational Science Education
   Volume {{ page.volume }} Issue {{ page.issue }}{% endcapture %}
 {% include article.html
-  abstract=site.data.full-issue.abstract
-  authors=site.data.full-issue.authors
+  abstract=site.data.full-issue-metadata.abstract
+  authors=site.data.full-issue-metadata.authors
   end-page=end-page
   issue=page.issue
   start-page=start-page
