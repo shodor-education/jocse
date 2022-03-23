@@ -47,6 +47,14 @@ while ($article = $issues->fetch_assoc()) {
   $issue = getIntValue($article["id"], "Issue");
   $filename = "$volume-$issue";
   echo "FILENAME::$filename\n---\n";
+  $query = <<<END
+select pubDate
+from rssFeed
+where link = "http://jocse.org/issues/$volume/$issue/"
+END;
+  $results = $cserdDbConn->query($query);
+  $result = $results->fetch_assoc();
+  echo "date: \"$result[pubDate]\"\n";
   $results = getValues(
     "Text"
   , $article["id"]

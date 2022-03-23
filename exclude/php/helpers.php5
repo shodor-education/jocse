@@ -2,16 +2,26 @@
 include_once("passwords.php5");
 
 $DB_SERVER = "mysql-be-yes-I-really-mean-prod.shodor.org";
+
+$CSERD_DB_NAME = "db_cserd";
+$CSERD_DB_USER = "adm_cserd";
+
 $SNAP2_DB_NAME = "db_snap";
 $SNAP2_DB_USER = "db_snap_user";
 
 $SDR_DB_NAME = "db_sdr";
 $SDR_DB_USER = "search_sdr";
 
+$cserdDbConn = new mysqli($DB_SERVER, $CSERD_DB_USER, $CSERD_DB_PASS, $CSERD_DB_NAME);
+if ($cserdDbConn->connect_error) {
+  die("Database connection failed: " . $cserdDbConn->connect_error);
+}
+
 $snap2DbConn = new mysqli($DB_SERVER, $SNAP2_DB_USER, $SNAP2_DB_PASS, $SNAP2_DB_NAME);
 if ($snap2DbConn->connect_error) {
   die("Database connection failed: " . $snap2DbConn->connect_error);
 }
+
 $sdrDbConn = new mysqli($DB_SERVER, $SDR_DB_USER, $SDR_DB_PASS, $SDR_DB_NAME);
 if ($sdrDbConn->connect_error) {
   die("Database connection failed: " . $sdrDbConn->connect_error);

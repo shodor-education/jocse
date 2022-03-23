@@ -2,17 +2,15 @@
 layout: "default"
 title: "Home"
 ---
-{% assign latest-volume = site.issues | map: "volume" | sort | last %}
-{% assign latest-issue = site.issues | where: "volume", latest-volume
-  | map: "issue" | sort | last %}
+{% assign latest-issue = site.issues | last %}
 <section id="splash-section">
   <h2>Promoting the Use of Computational Science Through Education</h2>
   <p>
     See a letter from our Editor-In-Chief below.
   </p>
   <p>
-    ATTENTION: Volume {{ latest-volume }}, Issue {{ latest-issue }} is now
-    available!
+    ATTENTION: Volume {{ latest-issue.volume }}, Issue {{ latest-issue.issue }}
+    is now available!
   </p>
   <p>
     Click here to contribute by submitting an article.

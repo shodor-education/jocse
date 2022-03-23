@@ -4,14 +4,10 @@ permalink: "/issues/issueArchive"
 title: "Past Issues"
 ---
 <ol id="issues-list">
-  {% assign volumes-grouping-list = site.issues | group_by: "volume"
-  | sort: "name" | reverse %}
-  {% for volume-hash in volumes-grouping-list %}
-    {% assign sorted-issues = volume-hash.items | sort: "month" | reverse %}
-    {% for issue in sorted-issues %}
-      <li>
-        <a href="{{ issue.url }}">{{ issue.title }}</a>
-      </li>
-    {% endfor %}
+  {% assign issues = site.issues | reverse %}
+  {% for issue in issues %}
+    <li>
+      <a href="{{ issue.url }}">{{ issue.title }}</a>
+    </li>
   {% endfor %}
 </ol>
