@@ -3,7 +3,5 @@ layout: "default"
 title: "Editorial Board"
 ---
 {% for staff-member in site.data.editors %}
-  {% for staff-member in site.data.current-technical-staff %}
-    {% include staff-info.html staff-member=staff-member %}
-  {% endfor %}
+  {% include staff-info.html staff-member=staff-member %}
 {% endfor %}
