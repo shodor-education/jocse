@@ -1,0 +1,12 @@
+---
+layout: "default"
+permalink: "/issues/issueArchive"
+title: "Past Issues"
+---
+<ol id="issues-list">
+  {% for issue in site.issues %}
+    <li>
+      <a href="{{ issue.url }}">{{ issue.title }}</a>
+    </li>
+  {% endfor %}
+</ol>

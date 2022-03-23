@@ -1,0 +1,44 @@
+---
+hide-h1: true
+layout: "default"
+---
+<article class="article">
+  <h3>{{ page.title }}</h3>
+  <p>
+    <em>
+      {% assign authors-str = page.authors | join: ", " %}
+        {% if page.authors.size > 1 %}
+          {% assign last-author-str = "and " | append: page.authors.last %}
+          {% assign authors-str = authors-str
+            | replace: page.authors.last, last-author-str %}
+          {% if page.authors.size == 2 %}
+            {% assign authors-str = authors-str | replace: ",", "" %}
+          {% endif %}
+        {% endif %}
+      {{ authors-str }}<br/>
+      Volume {{ page.volume }}, Issue {{ page.issue }},
+      pp. {{ page.start-page }}&ndash;{{ page.end-page }}<br/>
+      {% capture doi %}https://doi.org/10.22369/issn.2153-4136/{{
+        page.volume }}/{{ page.issue }}/{{ page.index }}{% endcapture %}
+      <a href="{{ doi }}">{{ doi }}</a>
+    </em>
+  </p>
+  <p>
+    {% capture href %}pdfs/jocse-{{ page.volume }}-{{ page.issue }}-{{
+      page.index }}.pdf{% endcapture %}
+    <a href="{{ href | relative_url }}" class="download-link">
+      <img src="{{ 'img/pdf-icon.gif' | relative_url }}" alt="PDF icon" />
+      Download PDF
+    </a>
+    <button onclick="">
+      Show BibTeX
+    </button>
+  </p>
+  <section class="bibtex-section">
+    <pre>{% include bibtex-section.html %}</pre>
+    <button>Copy</button>
+  </section>
+  <p>
+    {{ page.abstract }}
+  </p>
+</article>

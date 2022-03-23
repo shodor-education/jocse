@@ -56,7 +56,7 @@ function echoValues($type, $articleId, $fieldName, $label) {
     if ($type == "Text") {
       echo "\"";
     }
-    echo "$result[entry]";
+    echo str_replace("\"", "\\\"", $result["entry"]);
     if ($type == "Text") {
       echo "\"";
     }
@@ -94,14 +94,15 @@ while ($article = $articles->fetch_assoc()) {
     continue;
   }
   else if ($index == 1001) {
-    $filename = "jocse-$volume-$issue-0";
+    $filename = "$volume-$issue-0";
+    $index = 0;
   }
   else {
-    $filename = "jocse-$volume-$issue-$index";
+    $filename = "$volume-$issue-$index";
   }
-  $files[$filename] = $url["entry"];
+  $files["jocse-$filename"] = $url["entry"];
 
-  echo "FILENAME::_volume-$volume-issue-$issue/$index\n---\n";
+  echo "FILENAME::$filename\n---\n";
   echoValues("Text", $article["id"], "Abstract", "abstract");
   echoValues("Text", $article["id"], "Additional_Resources", "additional-resources");
   echoValuesArray("Text", $article["id"], "Audience", "audiences");
@@ -118,6 +119,7 @@ while ($article = $articles->fetch_assoc()) {
       $andSplit = explode(" and ", $cs);
       foreach ($andSplit as $as) {
         $value = preg_replace("#^and #", "", $as);
+        $value = str_replace("\"", "\\\"", $value);
         echo "  - \"$value\"\n";
       }
     }
@@ -137,10 +139,14 @@ while ($article = $articles->fetch_assoc()) {
   }
   echo "end-page: $endPage\n";
   echoValuesArray("Text", $article["id"], "Education_Level", "education-levels");
+  echo "index: $index\n";
+  echo "issue: $issue\n";
   echoValuesArray("Text", $article["id"], "Keyword", "keywords");
+  echo "permalink: \"articles/$volume/$issue/$index\"\n";
   echo "start-page: $startPage\n";
   echoValuesArray("Text", $article["id"], "Subject", "subjects");
   echoValues("Text", $article["id"], "Title", "title");
+  echo "volume: $volume\n";
   echo "---\n";
 }
 foreach ($files as $name => $url) {

@@ -1,0 +1,23 @@
+#issues-list {
+  padding: 0;
+
+  li {
+    list-style-type: none;
+    margin-bottom: 15px;
+
+    a {
+      background: linear-gradient(skyblue, white 75%);
+      border: $main-border;
+      color: black;
+      font-weight: bold;
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+
+      &:hover {
+        background: linear-gradient(#2c2a8f, #3f98c2);
+        color: white;
+      }
+    }
+  }
+}

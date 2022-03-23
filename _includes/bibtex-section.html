@@ -1,0 +1,13 @@
+{% assign rcurly = "}" %}
+@article{jocse-{{ page.volume }}-{{ page.issue }}-{{ page.index }},
+  author={% raw %}{{% endraw %}{{ page.authors | join: " and " }}{% raw %}}{%
+    endraw %},
+  title={{ "{" }}{{ page.title }}{{ rcurly }},
+  journal={The Journal of Computational Science Education},
+  year={{ "{" }}{{ year }}{{ rcurly }},
+  volume={{ "{" }}{{ page.volume }}{{ rcurly }},
+  issue={{ "{" }}{{ page.issue }}{{ rcurly }},
+  pages={{ "{" }}{{ page.start-page }}--{{ page.end-page }}{{ rcurly }},
+  month={{ year }},
+  url={{ "{" }}{{ doi }}{{ rcurly }}
+}

@@ -13,6 +13,8 @@
 
 $img-dir-url: {{ 'img' | relative_url }};
 
+$main-border: 1px solid mediumblue;
+
 %p-font {
   font-family: Verdana, Helvetica, sans-serif;
   font-size: 14px;
@@ -21,6 +23,7 @@ $img-dir-url: {{ 'img' | relative_url }};
 $page-width: 800px;
 
 @import 'base';
+@import 'layout/article';
 @import 'layout/body';
 @import 'layout/footer';
 @import 'layout/header';
@@ -29,3 +32,4 @@ $page-width: 800px;
 @import 'pages/about';
 @import 'pages/editorialBoard-technicalStaff';
 @import 'pages/home';
+@import 'pages/issueArchive';

@@ -1,3 +1,14 @@
+collections:
+  articles:
+    output: true
+    sort_by: "index"
+  issues:
+    output: true
+defaults:
+  - scope:
+      type: "articles"
+    values:
+      layout: "article"
 exclude:
   - "exclude"
 plugins:
