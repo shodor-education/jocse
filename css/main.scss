@@ -23,7 +23,7 @@ $main-border: 1px solid mediumblue;
 $page-width: 800px;
 
 @import 'base';
-@import 'layout/article';
+@import 'components/article';
 @import 'layout/body';
 @import 'layout/footer';
 @import 'layout/header';

@@ -1,0 +1,60 @@
+{% capture id %}{{ include.volume }}-{{ include.issue }}{% if
+  include.index %}-{{ include.index }}{% endif %}{% endcapture %}
+<article class="article">
+  <h3>
+    {% if include.title-link-url %}
+      <a href="{{ include.title-link-url | relative_url }}">
+    {% endif %}
+      {{ include.title }}
+    {% if include.title-link-url %}
+      </a>
+    {% endif %}
+  </h3>
+  <p class="authors-pages-doi-p">
+    <em>
+      {% assign authors-str = include.authors | join: "SEPARATOR " %}
+        {% if include.authors.size > 1 %}
+          {% assign last-author-str = "and "
+            | append: include.authors.last %}
+          {% assign authors-str = authors-str
+            | replace: include.authors.last, last-author-str %}
+          {% if include.authors.size == 2 %}
+            {% assign authors-str = authors-str | replace: "SEPARATOR", "" %}
+          {% else %}
+            {% assign authors-str = authors-str | replace: "SEPARATOR", "," %}
+          {% endif %}
+        {% endif %}
+      {{ authors-str }}<br/>
+      {% unless page.layout == "issue" %}
+        Volume {{ include.volume }}, Issue {{ include.issue }}<br/>
+      {% endunless %}
+      pp. {{ include.start-page }}&ndash;{{ include.end-page }}<br/>
+      {% if include.index > 0 %}
+        {% capture doi %}https://doi.org/10.22369/issn.2153-4136/{{
+          include.volume }}/{{ include.issue }}/{{
+          include.index }}{% endcapture %}
+        <a href="{{ doi }}">{{ doi }}</a>
+      {% endif %}
+    </em>
+  </p>
+  <p class="download-p">
+    {% capture href %}pdfs/jocse-{{ id }}.pdf{% endcapture%}
+    <a href="{{ href | relative_url }}" class="download-link">
+      <img src="{{ 'img/pdf-icon.gif' | relative_url }}" alt="PDF icon" />
+      Download PDF
+    </a>
+  </p>
+  {% if include.index > 0 %}
+    <details class="bibtex-details">
+      <summary>BibTeX</summary>
+      <pre id="bibtex-{{ id }}">{% include bibtex-section.html %}</pre>
+      <button onclick="copyBibtex('{{ id }}');">Copy</button>
+      <span id="copied-{{ id }}" class="copied-message">
+        Copied to clipboard!
+      </span>
+    </details>
+  {% endif %}
+  <p class="abstract-p">
+    {{ include.abstract }}
+  </p>
+</article>

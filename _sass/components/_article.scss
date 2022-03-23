@@ -1,0 +1,65 @@
+.article {
+  h3 {
+    margin: 0;
+
+    a:link,
+    a:visited {
+      color: #003c9c;
+      text-decoration: none;
+    }
+  }
+
+  .authors-pages-doi-p {
+    margin-bottom: 0.5em;
+  }
+
+  .download-p {
+    margin-bottom: 0.5em;
+    margin-left: 15px;
+
+    .download-link {
+      text-decoration: none;
+
+      img {
+        vertical-align: text-bottom;
+      }
+    }
+  }
+
+  .bibtex-details {
+    border: 1px solid black;
+    margin-bottom: 0.5em;
+    margin-left: 15px;
+    padding: 5px;
+
+    summary {
+      cursor: pointer;
+    }
+
+    pre {
+      font-family: "Courier New", Courier, monospace;
+      font-size: smaller;
+      margin: 0;
+      padding: 1em 0;
+      white-space: pre-wrap;       /* Since CSS 2.1 */
+      white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+      white-space: -pre-wrap;      /* Opera 4-6 */
+      white-space: -o-pre-wrap;    /* Opera 7 */
+      word-wrap: break-word;       /* Internet Explorer 5.5+ */
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    .copied-message {
+      @extend %p-font;
+      color: #003c9c;
+      display: none;
+    }
+  }
+
+  .abstract-p {
+    margin-left: 15px;
+  }
+}

@@ -9,6 +9,10 @@ defaults:
       type: "articles"
     values:
       layout: "article"
+  - scope:
+      type: "issues"
+    values:
+      layout: "issue"
 exclude:
   - "exclude"
 plugins:
