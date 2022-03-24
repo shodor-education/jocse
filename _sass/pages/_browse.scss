@@ -1,0 +1,45 @@
+#filters-section {
+  display: flex;
+  flex-wrap: nowrap;
+
+  .filter {
+    flex: 1;
+
+    .options {
+      height: 110px;
+      margin-top: 10px;
+      overflow-y: scroll;
+    }
+  }
+}
+
+#results-section {
+  h2 {
+    margin: 10px 0;
+  }
+
+  #results {
+    border: 1px solid gray;
+    height: 310px;
+    margin-bottom: 10px;
+    overflow-y: scroll;
+
+    h3 {
+      font-size: inherit;
+      margin: 0;
+    }
+
+    .article {
+      border-top: 1px solid gray;
+      padding: 10px;
+
+      &:first-child {
+        border-top: 0;
+      }
+
+      .abstract-p {
+        margin-bottom: 0;
+      }
+    }
+  }
+}

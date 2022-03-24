@@ -28,7 +28,7 @@ function sortEducationLevels($a, $b) {
 };
 
 $query = <<<END
-select SDRVersion.`id`
+select SDRVersion.`id`, SDRResource.`cserdId` as resourceId
 from SDRResource
 left join SDRResourceProject on SDRResourceProject.`cserdId` = SDRResource.`cserdId`
 left join SDRVersion on SDRVersion.`cserdId` = SDRResource.`cserdId`
@@ -45,6 +45,8 @@ $issues = $sdrDbConn->query($query);
 while ($article = $issues->fetch_assoc()) {
   $volume = getIntValue($article["id"], "Volume");
   $issue = getIntValue($article["id"], "Issue");
+  $month = getIntValue($article["id"], "Month");
+  $year = getIntValue($article["id"], "Year");
   $filename = "$volume-$issue";
   echo "FILENAME::$filename\n---\n";
   $query = <<<END
@@ -70,12 +72,27 @@ END;
     echo "  - \"$educationLevel\"\n";
   }
   echo "issue: $issue\n";
-  echoValues("Int", $article["id"], "Month", "month");
+  echo "month: $month\n";
   echo "permalink: \"/issues/$volume/$issue\"\n";
   echoValuesArray("Text", $article["id"], "Subject", "subjects");
-  echo "title: \"Volume $volume Issue $issue\"\n";
+  $monthNames = array(
+    ""
+  , "January"
+  , "February"
+  , "March"
+  , "April"
+  , "May"
+  , "June"
+  , "July"
+  , "August"
+  , "September"
+  , "October"
+  , "November"
+  , "December"
+  );
+  echo "title: \"Volume $volume Issue $issue &mdash; $monthNames[$month] $year\"\n";
   echo "volume: $volume\n";
-  echoValues("Int", $article["id"], "Year", "year");
+  echo "year: $year\n";
   echo "---\n";
 }
 

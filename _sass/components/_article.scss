@@ -1,4 +1,18 @@
+.pdf-download-link {
+  @extend %p-font;
+  display: block;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+  text-decoration: none;
+
+  img {
+    vertical-align: text-bottom;
+  }
+}
+
 .article {
+  @extend %p-font;
+
   h3 {
     margin: 0;
 
@@ -9,27 +23,15 @@
     }
   }
 
-  .authors-pages-doi-p {
-    margin-bottom: 0.5em;
-  }
-
-  .download-p {
-    margin-bottom: 0.5em;
-    margin-left: 15px;
-
-    .download-link {
-      text-decoration: none;
-
-      img {
-        vertical-align: text-bottom;
-      }
-    }
+  .volume-issue-date-pages,
+  .doi {
+    font-style: italic;
+    margin: 0;
   }
 
   .bibtex-details {
     border: 1px solid black;
     margin-bottom: 0.5em;
-    margin-left: 15px;
     padding: 5px;
 
     summary {
@@ -57,9 +59,5 @@
       color: #003c9c;
       display: none;
     }
-  }
-
-  .abstract-p {
-    margin-left: 15px;
   }
 }

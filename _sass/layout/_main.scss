@@ -17,7 +17,8 @@ main {
     }
   }
 
-  a:link {
+  a:link,
+  a:visited {
     color: #003c9c;
   }
 }

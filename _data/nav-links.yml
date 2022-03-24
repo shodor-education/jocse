@@ -28,5 +28,7 @@
       url: "/submitProcedure"
     - label: "VV&amp;A Reviews"
       url: "reviewProcess"
+    - label: "Submit an Article"
+      url: "submit"
 - label: "BROWSE"
   url: "/catalog/browse"

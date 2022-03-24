@@ -1,0 +1,51 @@
+---
+layout: "default"
+permalink: "/catalog/browse"
+title: "Browse JOCSE"
+---
+{% assign all-resources = "" | split: "" %}
+{% for issue in site.issues reversed %}
+  {% assign issue-in-array = site.issues | where: "date", issue.date %}
+  {% assign all-resources = all-resources | concat: issue-in-array %}
+  {% assign articles-in-volume = site.articles
+    | where: "volume", issue.volume
+  %}
+  {% assign articles-in-issue = articles-in-volume
+    | where: "issue", issue.issue
+  %}
+  {% assign all-resources = all-resources | concat: articles-in-issue %}
+{% endfor %}
+{% assign types = "Article,Full Issue" | split: "," %}
+<section id="filters-section">
+  {% include browse-filter.html heading="Subject"
+    options=site.data.subjects
+  %}
+  {% include browse-filter.html heading="Audience"
+    options=site.data.audiences
+  %}
+  {% include browse-filter.html heading="Education Level"
+    options=site.data.education-levels
+  %}
+  {% include browse-filter.html heading="Type"
+    options=types
+  %}
+</section>
+<section id="results-section">
+  <h2 id="results-count">{{ all-resources.size | count }} results</h2>
+  <div id="results">
+    {% for resource in all-resources %}
+      {% capture data-attributes %}
+        data-subject="{{ resource.subjects | join: ',' }}"
+        data-audience="{{ resource.audiences | join: ',' }}"
+        data-education-level="{{ resource.education-levels | join: ',' }}"
+        data-type="{{ resource.resource-type | capitalize }}"
+      {% endcapture %}
+      {% include article.html
+        article=resource
+        data-attributes=data-attributes
+        hide-bibtex=true
+        link-title=true
+      %}
+    {% endfor %}
+  </div>
+</section>

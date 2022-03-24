@@ -8,27 +8,8 @@ layout: "default"
 {% assign end-page = articles-in-issue.last.end-page %}
 {% capture full-issue-title %}The Journal of Computational Science Education
   Volume {{ page.volume }} Issue {{ page.issue }}{% endcapture %}
-{% include article.html
-  abstract=site.data.full-issue-metadata.abstract
-  authors=site.data.full-issue-metadata.authors
-  end-page=end-page
-  issue=page.issue
-  start-page=start-page
-  title=full-issue-title
-  volume=page.volume
-%}
+{% include pdf-download-link.html href=href text="Download Full Issue PDF" %}
+<h2 id="contents-heading">Contents</h2>
 {% for article in articles-in-issue %}
-  {% include article.html
-    abstract=article.abstract
-    authors=article.authors
-    end-page=article.end-page
-    index=article.index
-    issue=article.issue
-    start-page=article.start-page
-    title=article.title
-    title-link-url=article.url
-    volume=article.volume
-    month=page.month
-    year=page.year
-  %}
+  {% include article.html article=article link-title=true %}
 {% endfor %}
