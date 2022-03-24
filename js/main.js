@@ -37,12 +37,20 @@ function copyBibtex(id) {
   }
 }
 
+function dashStyleToCamelCase(str) {
+  return str.toLowerCase().replace(
+    /-(.)/g,
+    function(match, group1) {
+      return group1.toUpperCase();
+    }
+  );
+}
+
 function selectBrowseOption() {
   const filters = [
     "subject"
   , "audience"
   , "education-level"
-  , "type"
   ];
   const selectedResources = Array.prototype.slice.call(
     document.getElementsByClassName("article")
@@ -61,7 +69,8 @@ function selectBrowseOption() {
     );
     for (let j = 0; j < selectedResources.length; j++) {
       const resource = selectedResources[j];
-      const filterValues = resource.dataset[filter].split(",");
+      const filterValues
+        = resource.dataset[dashStyleToCamelCase(filter)].split(",");
       let hide = (filterType == "OR" && checkboxes.length > 0);
       for (let k = 0; k < checkboxes.length; k++) {
         const match = filterValues.includes(checkboxes[k].value);
@@ -82,7 +91,8 @@ function selectBrowseOption() {
     }
   }
   document.getElementById("results-count").innerHTML
-    = selectedResources.length + " results";
+    = selectedResources.length + " result"
+    + (selectedResources.length > 1 ? "s" : "");
   if (selectedResources.length > 0) {
     selectedResources[0].style.borderTop = "0";
     for (let i = 1; i < selectedResources.length; i++) {
