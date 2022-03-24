@@ -1,5 +1,4 @@
 footer {
-  @extend %bg-img;
   background-image: url('#{$img-dir-url}/footer-bg.jpeg');
   color: white;
   font-size: 15px;
@@ -7,14 +6,23 @@ footer {
 
   & > div {
     align-items: center;
-    background-image: url('#{$img-dir-url}/footer-logos.gif');
     display: flex;
     height: 35px;
     margin: 0 auto;
-    width: $page-width;
+    width: $page-width - 20;
 
     & > span {
       flex: 1;
+
+      &#issn-link,
+      &#feedback-link {
+        text-align: center;
+      }
+
+      &#cserd-logo,
+      &#nsdl-logo {
+        text-align: right;
+      }
     }
 
     a:link,

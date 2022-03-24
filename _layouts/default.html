@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="{{ 'css/main.css' | relative_url }}">
     <script src="{{ 'js/main.js' | relative_url }}"></script>
   </head>
-  <body>
+  <body class="bg-img">
     <header>
       <a id="header-logo" href="{{ site.url }}"><img
           src="{{ 'img/header-logo.png' | relative_url }}"
@@ -41,7 +41,7 @@
         {{ content }}
       </div>
     </main>
-    <footer>
+    <footer class="bg-img">
       <div>
         <span>
           <a href="http://www.shodor.org">&copy;
@@ -53,7 +53,12 @@
         <span id="feedback-link">
           <a href="{{ 'feedback' | relative_url }}">Feedback</a>
         </span>
-        <span></span>
+        <span id="cserd-logo">
+         <img src="{{ 'img/cserd.gif' | relative_url }}" />
+        </span>
+        <span id="nsdl-logo">
+          <img src="{{ 'img/nsdl.gif' | relative_url }}" />
+        </span>
       </div>
     </footer>
   </body>

@@ -1,5 +1,4 @@
 body {
-  @extend %bg-img;
   @extend %body-font;
   background-image: url('#{$img-dir-url}/body-bg.jpeg');
   margin: 0;
