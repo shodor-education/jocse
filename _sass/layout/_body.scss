@@ -6,6 +6,10 @@ body {
   min-width: $page-width;
 }
 
+h2 {
+  font-size: 108%;
+}
+
 p {
   @extend %p-font;
   margin: 0 0 1em 0;
