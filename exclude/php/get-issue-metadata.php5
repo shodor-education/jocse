@@ -2,31 +2,6 @@
 header("Content-Type: text/plain");
 include_once("helpers.php5");
 
-function sortEducationLevels($a, $b) {
-  $sortedOptions = array(
-    "Elementary School"
-  , "Upper Elementary"
-  , "Grade 3"
-  , "Grade 4"
-  , "Grade 5"
-  , "Middle School"
-  , "Grade 6"
-  , "Grade 7"
-  , "Grade 8"
-  , "High School"
-  , "Grade 9"
-  , "Grade 10"
-  , "Grade 11"
-  , "Grade 12"
-  , "Higher Education"
-  , "Undergraduate (Lower Division)"
-  , "Undergraduate (Upper Division)"
-  , "Graduate/Professional"
-  );
-  return array_search($a, $sortedOptions)
-  - array_search($b, $sortedOptions);
-};
-
 $query = <<<END
 select SDRVersion.`id`, SDRResource.`cserdId` as resourceId
 from SDRResource
@@ -57,20 +32,7 @@ END;
   $results = $cserdDbConn->query($query);
   $result = $results->fetch_assoc();
   echo "date: \"$result[pubDate]\"\n";
-  $results = getValues(
-    "Text"
-  , $article["id"]
-  , "Education_Level"
-  );
-  $educationLevels = array();
-  while ($result = $results->fetch_assoc()) {
-    array_push($educationLevels, $result["entry"]);
-  }
-  usort($educationLevels, "sortEducationLevels");
-  echo "education-levels:\n";
-  foreach ($educationLevels as $educationLevel) {
-    echo "  - \"$educationLevel\"\n";
-  }
+  echoEducationLevels($article["id"]);
   echo "issue: $issue\n";
   echo "month: $month\n";
   echo "permalink: \"/issues/$volume/$issue\"\n";

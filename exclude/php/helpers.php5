@@ -27,6 +27,59 @@ if ($sdrDbConn->connect_error) {
   die("Database connection failed: " . $sdrDbConn->connect_error);
 }
 
+function echoEducationLevels($articleId) {
+  $results = getValues(
+    "Text"
+  , $articleId
+  , "Education_Level"
+  );
+  $educationLevels = array();
+  while ($result = $results->fetch_assoc()) {
+    array_push($educationLevels, $result["entry"]);
+  }
+  usort($educationLevels, "sortEducationLevels");
+  echo "education-levels:\n";
+  foreach ($educationLevels as $educationLevel) {
+    echo "  - \"$educationLevel\"\n";
+  }
+}
+
+function echoValues($type, $articleId, $fieldName, $label) {
+  $results = getValues($type, $articleId, $fieldName);
+  if ($results->num_rows == 0 && $type == "Int") {
+    echoValues("IntText", $articleId, $fieldName, $label);
+  }
+  while ($result = $results->fetch_assoc()) {
+    echo "$label: ";
+    if ($type == "Text") {
+      echo "\"";
+    }
+    $str = str_replace("\\", "\\\\", $result["entry"]);
+    echo str_replace("\"", "\\\"", $str);
+    if ($type == "Text") {
+      echo "\"";
+    }
+    echo "\n";
+  }
+}
+
+function echoValuesArray($type, $articleId, $fieldName, $label) {
+  echo "$label:\n";
+  $results = getValues($type, $articleId, $fieldName);
+  while ($result = $results->fetch_assoc()) {
+    echo "  - \"$result[entry]\"\n";
+  }
+}
+
+function getIntValue($articleId, $fieldName) {
+  $results = getValues("Int", $articleId, $fieldName);
+  if ($results->num_rows == 0) {
+    $results = getValues("IntText", $articleId, $fieldName);
+  }
+  $result = $results->fetch_assoc();
+  return $result["entry"];
+}
+
 function getValues($type, $articleId, $fieldName) {
   global $sdrDbConn;
   if ($type == "IntText") {
@@ -47,40 +100,30 @@ END;
   return $sdrDbConn->query($query);
 }
 
-function getIntValue($articleId, $fieldName) {
-  $results = getValues("Int", $articleId, $fieldName);
-  if ($results->num_rows == 0) {
-    $results = getValues("IntText", $articleId, $fieldName);
-  }
-  $result = $results->fetch_assoc();
-  return $result["entry"];
-}
-
-function echoValues($type, $articleId, $fieldName, $label) {
-  $results = getValues($type, $articleId, $fieldName);
-  if ($results->num_rows == 0 && $type == "Int") {
-    echoValues("IntText", $articleId, $fieldName, $label);
-  }
-  while ($result = $results->fetch_assoc()) {
-    echo "$label: ";
-    if ($type == "Text") {
-      echo "\"";
-    }
-    echo str_replace("\"", "\\\"", $result["entry"]);
-    if ($type == "Text") {
-      echo "\"";
-    }
-    echo "\n";
-  }
-}
-
-function echoValuesArray($type, $articleId, $fieldName, $label) {
-  echo "$label:\n";
-  $results = getValues($type, $articleId, $fieldName);
-  while ($result = $results->fetch_assoc()) {
-    echo "  - \"$result[entry]\"\n";
-  }
-}
+function sortEducationLevels($a, $b) {
+  $sortedOptions = array(
+    "Elementary School"
+  , "Upper Elementary"
+  , "Grade 3"
+  , "Grade 4"
+  , "Grade 5"
+  , "Middle School"
+  , "Grade 6"
+  , "Grade 7"
+  , "Grade 8"
+  , "High School"
+  , "Grade 9"
+  , "Grade 10"
+  , "Grade 11"
+  , "Grade 12"
+  , "Higher Education"
+  , "Undergraduate (Lower Division)"
+  , "Undergraduate (Upper Division)"
+  , "Graduate/Professional"
+  );
+  return array_search($a, $sortedOptions)
+  - array_search($b, $sortedOptions);
+};
 
 ?>
 

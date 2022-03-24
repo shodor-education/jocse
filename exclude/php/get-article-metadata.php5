@@ -67,8 +67,8 @@ while ($article = $articles->fetch_assoc()) {
   else {
     $endPage = $split[1];
   }
+  echoEducationLevels($article["id"]);
   echo "end-page: $endPage\n";
-  echoValuesArray("Text", $article["id"], "Education_Level", "education-levels");
   echo "index: $index\n";
   echo "issue: $issue\n";
   echoValuesArray("Text", $article["id"], "Keyword", "keywords");
