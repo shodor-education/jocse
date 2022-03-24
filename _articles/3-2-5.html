@@ -1,24 +1,24 @@
 ---
 abstract: "An ab initio density functional theory based method that has a long history of dealing with large complex systems is the Orthogonalized Linear Combination of Atomic Orbitals (OLCAO) method, but it does not operate in parallel and, while the program is empirically observed to be fast, many components of its source code have not been analyzed for efficiency. This paper describes the beginnings of a concerted effort to modernize, parallelize, and functionally extend the OLCAO program so that it can be better applied to the complex and challenging problems of materials design. Specifically, profiling data were collected and analyzed using the popular performance monitoring tools TAU and PAPI as well as standard UNIX time commands. Each of the major components of the program was studied so that parallel algorithms that either modified or replaced the serial algorithm could be suggested. The program was run for a collection of different input parameters to observe trends in compute time. Additionally, the algorithm for computing interatomic interaction integrals was restructured and its performance was measured. The results indicate that a fair degree of speed-up of even the serial version of the program could be achieved rather easily, but that implementation of a parallel version of the program will require more substantial consideration."
 audiences:
-  - "Researcher"
   - "Educator"
+  - "Researcher"
   - "Student"
 authors:
   - "James Currie"
-  - "Rachel Cramm Horn"
   - "Paul Rulis"
-end-page: 40
+  - "Rachel Cramm Horn"
 education-levels:
   - "Higher Education"
-  - "Graduate/Professional"
   - "Undergraduate (Lower Division)"
   - "Undergraduate (Upper Division)"
+  - "Graduate/Professional"
+end-page: 40
 index: 5
 issue: 2
 keywords:
-  - "Density functional theory"
   - "atomic orbitals"
+  - "Density functional theory"
   - "performance monitoring"
 permalink: "articles/3/2/5"
 start-page: 34

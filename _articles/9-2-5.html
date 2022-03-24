@@ -1,35 +1,35 @@
 ---
 abstract: "With the recent advances in next generation sequencing technology, analysis of prevalent DNA sequence variants from patients with a particular disease has become an important tool for understanding the associations between the disease and genetic mutations. A publicly accessible bioinformatics pipeline, called OncoMiner (http://oncominer.utep.edu), was implemented in 2016 to help biomedical researchers analyze large genomic datasets from patients with cancer. However, the current version of OncoMiner can only accept input files with a highly specific format for sequence variant description. In order to handle data from a broader range of sequencing platforms, a data preprocessing tool is necessary. We have therefore implemented the OncoMiner Preprocessing (OP) program for parsing data files in the popular FastQ and BAM formats to generate an OncoMiner input file. OP involves using the open source Bowtie2 and SAMtools software, followed by a python script we developed for genetic sequence variant identification. To preprocess very large datasets efficiently, the OP program has been parallelized on two local computers and the Blue Waters system at the National Center for Supercomputing Applications using a multiprocessing approach. Although reasonable parallelization efficiency has been obtained on the local computers, the OP program's speedup on Blue Waters has been limited, possibly due to I/O issues and individual node memory constraints. Despite these, Blue Waters has provided the necessary resources to process 35 datasets from patients with acute myeloid leukemia and demonstrated significant correlation of OP runtimes with the BAM input size and chromosome diversity."
 audiences:
+  - "Professional/Practitioner"
   - "Researcher"
   - "Student"
-  - "Professional/Practitioner"
 authors:
-  - "Mariana Vasquez"
   - "Jonathon Mohl"
+  - "Mariana Vasquez"
   - "Ming-Ying Leung"
-end-page: 45
 education-levels:
   - "Higher Education"
   - "Graduate/Professional"
+end-page: 45
 index: 5
 issue: 2
 keywords:
-  - "Cancer"
-  - "Multiprocessing"
-  - "Blue Waters"
-  - "Next generation sequencing"
-  - "Genetic sequence variants"
-  - "OncoMiner pipeline"
-  - "Data preprocessing"
   - "Acute myeloid leukemia"
+  - "Blue Waters"
+  - "Cancer"
+  - "Data preprocessing"
+  - "Genetic sequence variants"
   - "High performance computing"
+  - "Multiprocessing"
+  - "Next generation sequencing"
+  - "OncoMiner pipeline"
   - "Python scripts"
 permalink: "articles/9/2/5"
 start-page: 37
 subjects:
-  - "Computational Science"
   - "Biology"
+  - "Computational Science"
   - "Life Sciences"
 title: "Parsing Next Generation Sequencing Data in Parallel Environments for Downstream Genetic Variation Analysis"
 volume: 9
