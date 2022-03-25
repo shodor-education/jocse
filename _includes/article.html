@@ -81,7 +81,7 @@
   {% unless include.hide-bibtex or include.article.index == 0 %}
     <details class="bibtex-details">
       <summary>BibTeX</summary>
-      <pre id="bibtex-{{ id }}">{% include bibtex-section.html %}</pre>
+      {% include bibtex-section.html article=include.article id=id %}
       <button onclick="copyBibtex('{{ id }}');">Copy</button>
       <span id="copied-{{ id }}" class="copied-message">
         Copied to clipboard!

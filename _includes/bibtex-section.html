@@ -1,15 +1,52 @@
+{% assign lcurly = "{" %}
 {% assign rcurly = "}" %}
-@article{jocse-{{ include.volume }}-{{ include.issue }}-{{
-    include.index }},
-  author={% raw %}{{% endraw %}{{ include.authors | join: " and " }}{% raw %}}{%
-    endraw %},
-  title={{ "{" }}{{ include.title }}{{ rcurly }},
+{% capture bibtex %}@article{jocse-{{ include.article.volume }}-{{
+    include.article.issue }}-{{ include.article..index }},
+  author={{ lcurly }}{{ include.article.authors | join: " and " }}{{ rcurly }},
+  title={{ lcurly }}{{ include.article.title }}{{ rcurly }},
   journal={The Journal of Computational Science Education},
-  year={{ include.year }},
-  month={{ include.month }},
-  volume={{ include.volume }},
-  issue={{ include.issue }},
-  pages={{ "{" }}{{ include.start-page }}--{{
-    include.end-page }}{{ rcurly }},
-  doi={{ "{" }}{{ doi }}{{ rcurly }}
-}
+  year={{ year }},
+  month={{ month }},
+  volume={{ include.article.volume }},
+  issue={{ include.article.issue }},
+  pages={{ lcurly }}{{ include.article.start-page }}--{{
+    include.article.end-page }}{{ rcurly }},
+  doi={{ lcurly }}{{ doi }}{{ rcurly }}
+}{% endcapture %}
+{% capture aacute %}\\'{a}{% endcapture %}
+{% capture amp %}\\&{% endcapture %}
+{% capture auml %}\\"{a}{% endcapture %}
+{% capture iacute %}\\'{i}{% endcapture %}
+{% capture iuml %}\\"{i}{% endcapture %}
+{% capture ndash %}\\textendash{% endcapture %}
+{% capture mdash %}\\textemdash{% endcapture %}
+{% capture Oacute %}\\'{O}{% endcapture %}
+{% capture omega %}\\omega{% endcapture %}
+{% capture ouml %}\\"{o}{% endcapture %}
+{% capture percnt %}\\%{% endcapture %}
+{% capture plusmn %}\\pm{% endcapture %}
+{% capture reg %}\\textregistered{% endcapture %}
+{% capture szlig %}{\\ss}{% endcapture %}
+{% capture trade %}\\texttrademark{% endcapture %}
+{% capture uacute %}\\'{u}{% endcapture %}
+{% capture uuml %}\\"{u}{% endcapture %}
+<pre id="bibtex-{{ include.id }}">{{ bibtex
+  | replace: "&aacute;", aacute
+  | replace: "&amp;", "&"
+  | replace: "&auml;", auml
+  | replace: "&iacute;", iacute
+  | replace: "&iuml;", iuml
+  | replace: "&ndash;", ndash
+  | replace: "&mdash;", mdash
+  | replace: "&Oacute;", Oacute
+  | replace: "&omega;", omega
+  | replace: "&ouml;", ouml
+  | replace: "&percnt;", percnt
+  | replace: "&plusmn;", plusmn
+  | replace: "&reg;", reg
+  | replace: "&szlig;", szlig
+  | replace: "&trade;", trade
+  | replace: "&uacute;", uacute
+  | replace: "&uuml;", uuml
+  | replace: "&", amp
+}}</pre>
