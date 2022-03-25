@@ -4,10 +4,10 @@ layout: "default"
 {% assign articles-in-volume = site.articles | where: "volume", page.volume %}
 {% assign articles-in-issue = articles-in-volume | where: "issue", page.issue
   | sort: "index" %}
-{% assign start-page = articles-in-issue.first.start-page %}
-{% assign end-page = articles-in-issue.last.end-page %}
 {% capture full-issue-title %}The Journal of Computational Science Education
   Volume {{ page.volume }} Issue {{ page.issue }}{% endcapture %}
+{% capture href %}media/jocse-{{ page.volume }}-{{ page.issue }}.pdf{%
+  endcapture %}
 {% include pdf-download-link.html href=href text="Download Full Issue PDF" %}
 <h2 id="contents-heading">Contents</h2>
 {% for article in articles-in-issue %}

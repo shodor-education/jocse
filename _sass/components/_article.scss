@@ -1,12 +1,13 @@
-.pdf-download-link {
-  @extend %p-font;
-  display: block;
+.pdf-download-p {
   margin-bottom: 0.5em;
   margin-top: 0.5em;
-  text-decoration: none;
 
-  img {
-    vertical-align: text-bottom;
+  a {
+    text-decoration: none;
+
+    img {
+      vertical-align: text-bottom;
+    }
   }
 }
 
