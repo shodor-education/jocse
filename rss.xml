@@ -16,7 +16,8 @@ redirect_from: "/rss"
     {% assign issues = site.issues | reverse %}
     {% for issue in issues limit:10 %}
       <item>
-        <title>{{ issue.title }} is now available!</title>
+        <title>Volume {{ issue.volume }} Issue {{
+          issue.issue }} is now available!</title>
         <link>{{ issue.url | relative_url }}</link>
         <description>The latest issue of the Journal of Computational Science Education is now available online!</description>
         <pubDate>{{ issue.date }}</pubDate>
