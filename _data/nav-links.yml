@@ -5,7 +5,7 @@
       url: "/about"
     - label: "Become a Reviewer"
       url: "/volunteer"
-- label: "EDITORIAL"
+- label: "EDITORS"
   url: "/editorialBoard"
   sublinks:
     - label: "Editorial Board"
