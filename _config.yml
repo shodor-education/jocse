@@ -1,3 +1,4 @@
+baseurl: "/jocse" # Comment out once jocse.org is live
 collections:
   articles:
     output: true
