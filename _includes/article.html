@@ -76,7 +76,7 @@
       include.article.index }}{% endcapture %}
     <a class="doi" href="{{ doi }}">{{ doi }}</a>
   {% endif %}
-  {% capture href %}media/jocse-{{ id }}.pdf{% endcapture %}
+  {% capture href %}downloads/jocse-{{ id }}.pdf{% endcapture %}
   {% include pdf-download-link.html href=href text="Download PDF" %}
   {% unless include.hide-bibtex or include.article.index == 0 %}
     <details class="bibtex-details">
