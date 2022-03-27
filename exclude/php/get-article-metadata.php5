@@ -37,7 +37,12 @@ while ($article = $articles->fetch_assoc()) {
   echoValues("Text", $article["id"], "Additional_Resources", "additional-resources");
   echoValuesArray("Text", $article["id"], "Audience", "audiences");
   echo "authors:\n";
-  $results = getValues("Text", $article["id"], "Creator");
+  $results = getValues(
+    "Text"
+  , $article["id"]
+  , "Creator"
+  , "SDRVersionFieldValue.`valueId`"
+  );
   while ($result = $results->fetch_assoc()) {
     if ($result["entry"] == "The Shodor Education Foundation, Inc.") {
       $commaSplit = array($result["entry"]);
@@ -80,7 +85,7 @@ while ($article = $articles->fetch_assoc()) {
   echo "---\n";
 }
 foreach ($files as $name => $url) {
-  echo "$name,$url\n";
+  echo "$name.pdf,$url\n";
 }
 ?>
 

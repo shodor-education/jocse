@@ -16,6 +16,7 @@ and SDRField.`name` = "contentIndex"
 and SDRIntValue.`entry` = 1000
 END;
 
+$files = array();
 $issues = $sdrDbConn->query($query);
 while ($article = $issues->fetch_assoc()) {
   $volume = getIntValue($article["id"], "Volume");
@@ -23,6 +24,9 @@ while ($article = $issues->fetch_assoc()) {
   $month = getIntValue($article["id"], "Month");
   $year = getIntValue($article["id"], "Year");
   $filename = "$volume-$issue";
+  $urls = getValues("Text", $article["id"], "Url");
+  $url = $urls->fetch_assoc();
+  $files["jocse-$filename"] = $url["entry"];
   echo "FILENAME::$filename\n---\n";
   $query = <<<END
 select pubDate
@@ -56,6 +60,9 @@ END;
   echo "volume: $volume\n";
   echo "year: $year\n";
   echo "---\n";
+}
+foreach ($files as $name => $url) {
+  echo "$name.pdf,$url\n";
 }
 
 ?>

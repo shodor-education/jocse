@@ -80,7 +80,7 @@ function getIntValue($articleId, $fieldName) {
   return $result["entry"];
 }
 
-function getValues($type, $articleId, $fieldName) {
+function getValues($type, $articleId, $fieldName, $orderBy = "entry") {
   global $sdrDbConn;
   if ($type == "IntText") {
     $table = "SDRTextValue";
@@ -95,7 +95,7 @@ left join SDRVersionFieldValue on SDRVersionFieldValue.`valueId` = $table.`value
 left join SDRField on SDRField.`id` = SDRVersionFieldValue.`fieldId`
 where SDRField.`name` = "$fieldName"
 and SDRVersionFieldValue.`versionId` = $articleId
-order by entry
+order by $orderBy
 END;
   return $sdrDbConn->query($query);
 }
