@@ -4,6 +4,7 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Journal of Computational Science Education: {{ page.title }}</title>
     <link rel="icon" type="image/ico" href="{{ 'favicon.ico' | relative_url }}">
     <link rel="stylesheet" href="{{ 'css/main.css' | relative_url }}">
@@ -11,7 +12,7 @@
   </head>
   <body class="bg-img">
     <header>
-      <a id="header-logo" href="{{ site.url }}"><img
+      <a id="header-logo" href="{{ site.url }}{{ site.baseurl }}"><img
           src="{{ 'img/header-logo.png' | relative_url }}"
           alt="Journal of Computational Science Education (JOCSE) logo"/></a>
     </header>
@@ -19,12 +20,13 @@
       <ul>
         {% for nav-link in site.data.nav-links %}
           <li>
-            <a href="{{ nav-link.url }}">{{ nav-link.label }}</a>
+            <a href="{{ nav-link.url | relative_url }}">{{ nav-link.label }}</a>
             {% if nav-link.sublinks %}
               <ul class="sublist">
                 {% for nav-sublink in nav-link.sublinks %}
                   <li>
-                    <a href="{{ nav-sublink.url }}">{{ nav-sublink.label }}</a>
+                    <a href="{{ nav-sublink.url | relative_url }}">{{
+                      nav-sublink.label }}</a>
                   </li>
                 {% endfor %}
               </ul>

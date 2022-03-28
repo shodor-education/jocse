@@ -7,7 +7,7 @@ title: "Past Issues"
   {% assign issues = site.issues | reverse %}
   {% for issue in issues %}
     <li>
-      <a href="{{ issue.url }}">{{ issue.title }}</a>
+      <a href="{{ issue.url | relative_url }}">{{ issue.title }}</a>
     </li>
   {% endfor %}
 </ol>
