@@ -1,0 +1,6 @@
+{% if page.collection == "issues" %}
+  {% include get-volume-and-issue-nums.html issue=page %}
+  {% capture title %}Volume {{ volume-num }}
+    Issue {{ issue-num }} &mdash;
+    {{ site.data.month-names[page.month] }} {{ page.year }}{% endcapture %}
+{% endif %}

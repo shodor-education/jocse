@@ -2,14 +2,15 @@
 layout: "default"
 title: "Home"
 ---
-{% assign latest-issue = site.issues | last %}
 <section id="splash-section">
   <h2>Promoting the Use of Computational Science Through Education</h2>
   <p>
     See a letter from our Editor-In-Chief below.
   </p>
   <p>
-    ATTENTION: Volume {{ latest-issue.volume }}, Issue {{ latest-issue.issue }}
+    {% assign latest-issue = site.issues | last %}
+    {% include get-volume-and-issue-nums.html issue=latest-issue %}
+    ATTENTION: Volume {{ volume-num }}, Issue {{ issue-num }}
     is now available!
   </p>
   <p>

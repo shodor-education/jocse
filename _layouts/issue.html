@@ -1,12 +1,11 @@
 ---
 layout: "default"
 ---
-{% assign articles-in-volume = site.articles | where: "volume", page.volume %}
-{% assign articles-in-issue = articles-in-volume | where: "issue", page.issue
+{% include get-volume-and-issue-nums.html issue=page %}
+{% assign articles-in-volume = site.articles | where: "volume", volume-num %}
+{% assign articles-in-issue = articles-in-volume | where: "issue", issue-num
   | sort: "index" %}
-{% capture full-issue-title %}The Journal of Computational Science Education
-  Volume {{ page.volume }} Issue {{ page.issue }}{% endcapture %}
-{% capture href %}downloads/jocse-{{ page.volume }}-{{ page.issue }}.pdf{%
+{% capture href %}downloads/jocse-{{ volume-num }}-{{ issue-num }}.pdf{%
   endcapture %}
 {% include pdf-download-link.html href=href text="Download Full Issue PDF" %}
 <h2 id="contents-heading">Contents</h2>

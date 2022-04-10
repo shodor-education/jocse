@@ -1,10 +1,10 @@
 #!/bin/bash
 
 IFS=''; while read -r LINE; do
-  if [[ "${LINE}" =~ "FILENAME::".* ]]; then
-    FILENAME="$(echo "${LINE}" | awk -F '::' '{print $2}').html";
-    mkdir -p $(dirname "${FILENAME}");
+  if [[ "${LINE}" =~ "DIRECTORY::".* ]]; then
+    DIR_NAME="$(echo "${LINE}" | awk -F '::' '{print $2}')";
+    mkdir -p ${DIR_NAME};
   else
-    echo "${LINE}" >> ${FILENAME};
+    echo "${LINE}" >> ${DIR_NAME}/index.html;
   fi;
 done <${1};

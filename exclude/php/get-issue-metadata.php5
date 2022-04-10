@@ -23,11 +23,10 @@ while ($article = $issues->fetch_assoc()) {
   $issue = getIntValue($article["id"], "Issue");
   $month = getIntValue($article["id"], "Month");
   $year = getIntValue($article["id"], "Year");
-  $filename = "$volume-$issue";
   $urls = getValues("Text", $article["id"], "Url");
   $url = $urls->fetch_assoc();
-  $files["jocse-$filename"] = $url["entry"];
-  echo "FILENAME::$filename\n---\n";
+  $files["jocse-$volume-$issue"] = $url["entry"];
+  echo "DIRECTORY::$volume/$issue\n---\n";
   $query = <<<END
 select pubDate
 from rssFeed
@@ -37,27 +36,8 @@ END;
   $result = $results->fetch_assoc();
   echo "date: \"$result[pubDate]\"\n";
   echoEducationLevels($article["id"]);
-  echo "issue: $issue\n";
   echo "month: $month\n";
-  echo "permalink: \"/issues/$volume/$issue\"\n";
   echoValuesArray("Text", $article["id"], "Subject", "subjects");
-  $monthNames = array(
-    ""
-  , "January"
-  , "February"
-  , "March"
-  , "April"
-  , "May"
-  , "June"
-  , "July"
-  , "August"
-  , "September"
-  , "October"
-  , "November"
-  , "December"
-  );
-  echo "title: \"Volume $volume Issue $issue &mdash; $monthNames[$month] $year\"\n";
-  echo "volume: $volume\n";
   echo "year: $year\n";
   echo "---\n";
 }
