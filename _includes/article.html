@@ -2,7 +2,8 @@
 <article class="article" {{ include.data-attributes }}>
   <h3>
     {% if include.link-title %}
-      <a href="{{ include.article.url | relative_url }}">
+      <a href="{{ include.article.url | relative_url
+        | replace: 'index.html', ''}}">
     {% endif %}
     {% if include.title %}
       {{ include.title }}
@@ -37,7 +38,8 @@
         {{ site.data.month-names[month] }} {{ year }},
       {% endunless %}
     {% else %}
-      <a href="{{ issue.url | relative_url }}">Volume {{ volume-num }},
+      <a href="{{ issue.url | relative_url
+        | replace: 'index.html', '' }}">Volume {{ volume-num }},
         Issue {{ issue-num }}</a>
       {% if month and year %}
         ({{ site.data.month-names[month] }}

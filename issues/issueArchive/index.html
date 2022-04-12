@@ -7,7 +7,8 @@ title: "Past Issues"
   {% for issue in issues %}
     <li>
       {% include get-title.html item=issue %}
-      <a href="{{ issue.url | relative_url }}">{{ title }}</a>
+      <a href="{{ issue.url | relative_url | replace: 'index.html', '' }}">{{
+        title }}</a>
     </li>
   {% endfor %}
 </ol>
