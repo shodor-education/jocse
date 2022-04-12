@@ -24,17 +24,12 @@ while ($article = $articles->fetch_assoc()) {
     continue;
   }
   else if ($index == 1001) {
-    $filename = "$volume-$issue-0";
     $index = 0;
   }
-  else {
-    $filename = "$volume-$issue-$index";
-  }
-  $files["jocse-$filename"] = $url["entry"];
+  $files["jocse-$volume-$issue-$index"] = $url["entry"];
 
-  echo "FILENAME::$filename\n---\n";
+  echo "DIRECTORY::$volume/$issue/$index\n---\n";
   echoValues("Text", $article["id"], "Abstract", "abstract");
-  echoValues("Text", $article["id"], "Additional_Resources", "additional-resources");
   echoValuesArray("Text", $article["id"], "Audience", "audiences");
   echo "authors:\n";
   $results = getValues(
@@ -74,14 +69,10 @@ while ($article = $articles->fetch_assoc()) {
   }
   echoEducationLevels($article["id"]);
   echo "end-page: $endPage\n";
-  echo "index: $index\n";
-  echo "issue: $issue\n";
   echoValuesArray("Text", $article["id"], "Keyword", "keywords");
-  echo "permalink: \"articles/$volume/$issue/$index\"\n";
   echo "start-page: $startPage\n";
   echoValuesArray("Text", $article["id"], "Subject", "subjects");
   echoValues("Text", $article["id"], "Title", "title");
-  echo "volume: $volume\n";
   echo "---\n";
 }
 foreach ($files as $name => $url) {

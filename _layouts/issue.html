@@ -1,14 +1,12 @@
 ---
 layout: "default"
 ---
-{% include get-volume-and-issue-nums.html issue=page %}
-{% assign articles-in-volume = site.articles | where: "volume", volume-num %}
-{% assign articles-in-issue = articles-in-volume | where: "issue", issue-num
-  | sort: "index" %}
+{% include get-volume-issue-and-index.html item=page %}
 {% capture href %}downloads/jocse-{{ volume-num }}-{{ issue-num }}.pdf{%
   endcapture %}
 {% include pdf-download-link.html href=href text="Download Full Issue PDF" %}
 <h2 id="contents-heading">Contents</h2>
-{% for article in articles-in-issue %}
+{% include get-articles-in-issue.html %}
+{% for article in articles %}
   {% include article.html article=article link-title=true %}
 {% endfor %}

@@ -1,0 +1,23 @@
+---
+abstract: "Understanding turbulence and mixing due to the hydrodynamic instabilities plays an important role in a wide range of science and engineering applications. Numerical simulations of three dimensional turbulent mixing help us to predict the dynamics of two fluids of different densities, one over the other. The focus of this work is to optimize and improve the computational performance of the numerical simulations for the compressible turbulent mixing on Blue Waters, the petascale supercomputer at the National Center for Supercomputing Applications. In this paper, we study the effect of the programming models on time to solution. The hybrid programming model, which is a combination of parallel programming models, becomes a dominant approach. The most preferable hybrid model is the one that involves the Message Passing Interface (MPI), such as MPI + Pthreads, MPI + OpenMP, MPI + MPI-3 shared memory programming, and others with accelerator support. Among all choices, we choose the hybrid programming model that is based on MPI + OpenMP. We extend the purely MPI parallelized code with OpenMP parallelism and develop the hybrid version of the code. This new hybrid implementation of the code is set up in a way that multiple MPI processes handle the interface propagation, whereas multiple OpenMP threads handle the high order weighted essentially non-oscillatory numerical scheme."
+audiences:
+  - "Researcher"
+  - "Student"
+authors:
+  - "Tulin Kaman"
+  - "Alaina Edwards"
+  - "John McGarigal"
+education-levels:
+  - "Higher Education"
+  - "Graduate/Professional"
+end-page: 58
+keywords:
+  - "Turbulent Mixing, Numerical Simulations, Performance Analysis, Distributed/Shared memory programming"
+start-page: 49
+subjects:
+  - "Computational Science"
+  - "Engineering"
+  - "Mathematics"
+  - "Physics"
+title: "Performance Analysis of the Parallel CFD Code for Turbulent Mixing Simulations"
+---

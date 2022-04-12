@@ -1,0 +1,25 @@
+---
+abstract: "Machine learning has accounted for solving a cascade of data in an efficient and timely manner including as an alternative molecular calculator to replace more expensive <i>ab initio</i> techniques. Neural networks (NN) are the most predictive for new cases that are similar to examples in their training sets; however, it is sometimes necessary for the NN to accurately evaluate structures not in its training set. In this project, we quantify how clustering a training set into groups with similar geometric motifs can be used to train a NN so that it can accurately determine the energies of structures not in the training set. This was accomplished by generating over 800 C<sub>8</sub>H<sub>7</sub>N structures, relaxing them using DFTB+, and grouping them using agglomerative clustering. Some of these groups were assigned to the training group and used to train a NN using the pre-existing Atomistic Machine-learning Package (AMP). The remaining groups were evaluated using the trained NN and compared to the DFTB+ energy. These two energies were plotted and fitted to a straight line where higher R<sup>2</sup> values correspond to the NN more accurately predicting the energies of structures not in its training set. This process was repeated systematically with a different number of nodes and hidden layers. It was found that for limited NN architectures, the NN did a poor job predicting structures outside of its training set. This was improved by adding hidden layers and nodes as well as increasing the size of the training set."
+audiences:
+  - "Professional/Practitioner"
+  - "Researcher"
+  - "Student"
+authors:
+  - "Carlos A. Barragan"
+  - "Michael N. Groves"
+education-levels:
+  - "Higher Education"
+  - "Graduate/Professional"
+end-page: 38
+keywords:
+  - "Agglomerative hierarchical clustering (AHC)"
+  - "Atomistic Machine-learning Package (AMP)"
+  - "Density Functional based Tight Binding (DFTB+)"
+  - "Genetic algorithm (GA)"
+  - "Neural network (NN)"
+start-page: 32
+subjects:
+  - "Chemistry"
+  - "Computational Science"
+title: "Training Neural Networks to Accurately Determine Energies of Structures Outside of the Training Set Using Agglomerative Clustering"
+---

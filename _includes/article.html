@@ -1,41 +1,27 @@
-{% capture id %}{{ include.article.volume }}-{{ include.article.issue }}{% if
-  include.article.index %}-{{ include.article.index }}{% endif %}{%
-  endcapture %}
+{% include get-volume-issue-and-index.html item=include.article %}
 <article class="article" {{ include.data-attributes }}>
   <h3>
     {% if include.link-title %}
       <a href="{{ include.article.url | relative_url }}">
     {% endif %}
-      {% if include.title %}
-        {{ include.title }}
-      {% else %}
-        {{ include.article.title }}
-      {% endif %}
+    {% if include.title %}
+      {{ include.title }}
+    {% else %}
+      {{ include.article.title }}
+    {% endif %}
     {% if include.link-title %}
       </a>
     {% endif %}
   </h3>
   {% if include.article.authors %}
-    {% assign authors-str = include.article.authors | join: "SEPARATOR " %}
-    {% if include.article.authors.size > 1 %}
-      {% assign last-author-str = "and "
-        | append: include.article.authors.last %}
-      {% assign authors-str = authors-str
-        | replace: include.article.authors.last, last-author-str %}
-      {% if include.article.authors.size == 2 %}
-        {% assign authors-str = authors-str | replace: "SEPARATOR", "" %}
-      {% else %}
-        {% assign authors-str = authors-str | replace: "SEPARATOR", "," %}
-      {% endif %}
-    {% endif %}
     <address class="authors">
-      {{ authors-str }}
+      {{ include.article.authors | array_to_sentence_string }}
     </address>
   {% endif %}
   <p class="volume-issue-date-pages">
-    {% capture slug %}{{ include.article.volume }}-{{
-      include.article.issue }}{% endcapture %}
-    {% assign issue = site.issues | where: "slug", slug | first %}
+    {% capture url %}/issues/{{ volume-num }}/{{ issue-num }}/index.html{%
+      endcapture %}
+    {% assign issue = site.issues | where: "url", url | first %}
     {% if issue.month %}
       {% assign month = issue.month %}
     {% else %}
@@ -47,12 +33,12 @@
       {% assign year = include.article.year %}
     {% endif %}
     {% if page.layout == "issue" %}
-      {% unless include.article.index %}
+      {% unless index %}
         {{ site.data.month-names[month] }} {{ year }},
       {% endunless %}
     {% else %}
-      <a href="{{ issue.url | relative_url }}">Volume
-        {{ include.article.volume }}, Issue {{ include.article.issue }}</a>
+      <a href="{{ issue.url | relative_url }}">Volume {{ volume-num }},
+        Issue {{ issue-num }}</a>
       {% if month and year %}
         ({{ site.data.month-names[month] }}
         {{ year }}),
@@ -70,15 +56,16 @@
     {% endif %}
     pp. {{ start-page }}&ndash;{{ end-page }}
   </p>
-  {% if include.article.index > 0 %}
-    {% capture doi %}https://doi.org/10.22369/issn.2153-4136/{{
-      include.article.volume }}/{{ include.article.issue }}/{{
-      include.article.index }}{% endcapture %}
+  {% if index > 0 %}
+    {% capture doi %}https://doi.org/10.22369/issn.2153-4136/{{ volume-num }}/{{
+      issue-num }}/{{ index }}{% endcapture %}
     <a class="doi" href="{{ doi }}">{{ doi }}</a>
   {% endif %}
+  {% capture id %}{{ volume-num }}-{{ issue-num }}{% if index %}-{{ index }}{%
+    endif %}{% endcapture %}
   {% capture href %}downloads/jocse-{{ id }}.pdf{% endcapture %}
   {% include pdf-download-link.html href=href text="Download PDF" %}
-  {% unless include.hide-bibtex or include.article.index == 0 %}
+  {% unless include.hide-bibtex or index == 0 %}
     <details class="bibtex-details">
       <summary>BibTeX</summary>
       {% include bibtex-section.html article=include.article id=id %}

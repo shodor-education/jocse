@@ -7,14 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% include get-title.html %}
     <title>Journal of Computational Science Education: {{ title }}</title>
-    <link rel="icon" type="image/ico" href="{{ 'favicon.ico' | relative_url }}">
-    <link rel="stylesheet" href="{{ 'css/main.css' | relative_url }}">
-    <script src="{{ 'js/main.js' | relative_url }}"></script>
+    <link rel="icon" type="image/ico" href="{{ '/favicon.ico' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/css/main.css' | relative_url }}">
+    <script src="{{ '/js/main.js' | relative_url }}"></script>
   </head>
   <body class="bg-img">
     <header>
       <a id="header-logo" href="{{ site.url }}{{ site.baseurl }}"><img
-          src="{{ 'img/header-logo.png' | relative_url }}"
+          src="{{ '/img/header-logo.png' | relative_url }}"
           alt="Journal of Computational Science Education (JOCSE) logo"/></a>
     </header>
     <nav id="site-nav">
@@ -51,17 +51,17 @@
             1994–{{ "now" | date: "%Y" }} Shodor</a>
         </span>
         <span id="issn-link">
-          <a href="{{ 'about' | relative_url }}">ISSN 2153-4136</a>
+          <a href="{{ '/about/' | relative_url }}">ISSN 2153-4136</a>
         </span>
         <span id="feedback-link">
-          <a href="{{ 'feedback' | relative_url }}">Feedback</a>
+          <a href="{{ '/feedback/' | relative_url }}">Feedback</a>
         </span>
         <span id="cserd-logo">
-         <img src="{{ 'img/cserd.gif' | relative_url }}" />
+         <img src="{{ '/img/cserd.gif' | relative_url }}" />
         </span>
         <span id="nsdl-logo">
           <a href="https://nsdl.oercommons.org/" target="_blank">
-            <img src="{{ 'img/nsdl.gif' | relative_url }}" />
+            <img src="{{ '/img/nsdl.gif' | relative_url }}" />
           </a>
         </span>
       </div>

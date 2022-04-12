@@ -9,13 +9,13 @@ title: "Home"
   </p>
   <p>
     {% assign latest-issue = site.issues | last %}
-    {% include get-volume-and-issue-nums.html issue=latest-issue %}
+    {% include get-volume-issue-and-index.html item=latest-issue %}
     ATTENTION: Volume {{ volume-num }}, Issue {{ issue-num }}
     is now available!
   </p>
   <p>
-    <a href="{{ 'submitProcedure' | relative_url }}">Click here to contribute by
-      submitting an article</a>.
+    <a href="{{ '/submitProcedure/' | relative_url }}">Click here to contribute
+      by submitting an article</a>.
   </p>
 </section>
 <article id="editor-intro">
@@ -51,7 +51,7 @@ title: "Home"
     engineers with a broad array of experiences from their own disciplines. They
     will lead the peer review process for journal submissions. If you have the
     background and experience to be a reviewer for the journal, we encourage you
-    to <a href="{{ 'volunteer' | relative_url }}">volunteer to do so</a>. We
+    to <a href="{{ '/volunteer/' | relative_url }}">volunteer to do so</a>. We
     hope the review process will provide an incentive for faculty who have been
     using computational science to share their classroom successes and will also
     encourage other faculty to devote some additional time to the development of

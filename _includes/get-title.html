@@ -1,6 +1,13 @@
-{% if page.collection == "issues" %}
-  {% include get-volume-and-issue-nums.html issue=page %}
+{% if include.item %}
+  {% assign item = include.item %}
+{% else %}
+  {% assign item = page %}
+{% endif %}
+{% if item.collection == "issues" %}
+  {% include get-volume-issue-and-index.html item=item %}
   {% capture title %}Volume {{ volume-num }}
     Issue {{ issue-num }} &mdash;
-    {{ site.data.month-names[page.month] }} {{ page.year }}{% endcapture %}
+    {{ site.data.month-names[item.month] }} {{ item.year }}{% endcapture %}
+{% else %}
+  {% assign title = item.title %}
 {% endif %}

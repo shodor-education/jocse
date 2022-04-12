@@ -1,14 +1,13 @@
 {% assign lcurly = "{" %}
 {% assign rcurly = "}" %}
-{% capture bibtex %}@article{jocse-{{ include.article.volume }}-{{
-    include.article.issue }}-{{ include.article..index }},
+{% capture bibtex %}@article{jocse-{{ volume-num }}-{{ issue-num }}-{{ index }},
   author={{ lcurly }}{{ include.article.authors | join: " and " }}{{ rcurly }},
   title={{ lcurly }}{{ include.article.title }}{{ rcurly }},
   journal={The Journal of Computational Science Education},
   year={{ year }},
   month={{ month }},
-  volume={{ include.article.volume }},
-  issue={{ include.article.issue }},
+  volume={{ volume-num }},
+  issue={{ issue-num }},
   pages={{ lcurly }}{{ include.article.start-page }}--{{
     include.article.end-page }}{{ rcurly }},
   doi={{ lcurly }}{{ doi }}{{ rcurly }}

@@ -1,0 +1,38 @@
+---
+layout: "default"
+title: "Browse JOCSE"
+---
+{% assign all-articles = "" | split: "" %}
+{% for issue in site.issues reversed %}
+  {% include get-articles-in-issue.html issue=issue %}
+  {% assign all-articles = all-articles | concat: articles %}
+{% endfor %}
+<section id="filters-section">
+  {% include browse-filter.html heading="Subject"
+    options=site.data.subjects
+  %}
+  {% include browse-filter.html heading="Audience"
+    options=site.data.audiences
+  %}
+  {% include browse-filter.html heading="Education Level"
+    options=site.data.education-levels
+  %}
+</section>
+<section id="results-section">
+  <h2 id="results-count">{{ all-articles | size | count }} results</h2>
+  <div id="results">
+    {% for article in all-articles %}
+      {% capture data-attributes %}
+        data-subject="{{ article.subjects | join: ',' }}"
+        data-audience="{{ article.audiences | join: ',' }}"
+        data-education-level="{{ article.education-levels | join: ',' }}"
+      {% endcapture %}
+      {% include article.html
+        article=article
+        data-attributes=data-attributes
+        hide-bibtex=true
+        link-title=true
+      %}
+    {% endfor %}
+  </div>
+</section>
