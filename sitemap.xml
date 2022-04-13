@@ -1,0 +1,52 @@
+---
+---
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>{{ "/" | absolute_url }}</loc>
+  </url>
+  <url>
+    <loc>{{ "/about/" | absolute_url }}</loc>
+  </url>
+  <url>
+    <loc>{{ "/catalog/browse/" | absolute_url }}</loc>
+  </url>
+  <url>
+    <loc>{{ "/editorialBoard/" | absolute_url }}</loc>
+  </url>
+  <url>
+    <loc>{{ "/feedback/" | absolute_url }}</loc>
+  </url>
+  <url>
+    <loc>{{ "/issues/issueArchive/" | absolute_url }}</loc>
+  </url>
+  <url>
+    <loc>{{ "/reviewProcess/" | absolute_url }}</loc>
+  </url>
+  <url>
+    <loc>{{ "/rss.xml" | absolute_url }}</loc>
+  </url>
+  <url>
+    <loc>{{ "/submit/" | absolute_url }}</loc>
+  </url>
+  <url>
+    <loc>{{ "/submitProcedure/" | absolute_url }}</loc>
+  </url>
+  <url>
+    <loc>{{ "/technicalStaff/" | absolute_url }}</loc>
+  </url>
+  <url>
+    <loc>{{ "/volunteer/" | absolute_url }}</loc>
+  </url>
+  {% for document in site.documents %}
+    <url>
+      <loc>{{ document.url | absolute_url | replace: "index.html", "" }}</loc>
+    </url>
+  {% endfor %}
+  {% assign pdfs = site.static_files | where: "extname", ".pdf" %}
+  {% for pdf in pdfs %}
+    <url>
+      <loc>{{ pdf.path | absolute_url }}</loc>
+    </url>
+  {% endfor %}
+</urlset>
