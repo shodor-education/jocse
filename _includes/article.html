@@ -23,27 +23,17 @@
     {% capture url %}/issues/{{ volume-num }}/{{ issue-num }}/index.html{%
       endcapture %}
     {% assign issue = site.issues | where: "url", url | first %}
-    {% if issue.month %}
-      {% assign month = issue.month %}
-    {% else %}
-      {% assign month = include.article.month %}
-    {% endif %}
-    {% if issue.year %}
-      {% assign year = issue.year %}
-    {% else %}
-      {% assign year = include.article.year %}
-    {% endif %}
+    {% include get-month-and-year.html date=issue.date %}
     {% if page.layout == "issue" %}
       {% unless index %}
-        {{ site.data.month-names[month] }} {{ year }},
+        {{ month }} {{ year }},
       {% endunless %}
     {% else %}
       <a href="{{ issue.url | relative_url
         | replace: 'index.html', '' }}">Volume {{ volume-num }},
         Issue {{ issue-num }}</a>
       {% if month and year %}
-        ({{ site.data.month-names[month] }}
-        {{ year }}),
+        ({{ month }} {{ year }}),
       {% endif %}
     {% endif %}
     {% if include.start-page %}
@@ -70,7 +60,12 @@
   {% unless include.hide-bibtex or index == 0 %}
     <details class="bibtex-details">
       <summary>BibTeX</summary>
-      {% include bibtex-section.html article=include.article id=id %}
+      {% include bibtex-section.html
+        article=include.article
+        id=id
+        month=month
+        year=year
+      %}
       <button onclick="copyBibtex('{{ id }}');">Copy</button>
       <span id="copied-{{ id }}" class="copied-message">
         Copied to clipboard!

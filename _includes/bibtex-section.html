@@ -4,8 +4,8 @@
   author={{ lcurly }}{{ include.article.authors | join: " and " }}{{ rcurly }},
   title={{ lcurly }}{{ include.article.title }}{{ rcurly }},
   journal={The Journal of Computational Science Education},
-  year={{ year }},
-  month={{ month }},
+  year={{ include.year }},
+  month={{ include.month | date: "%b" | downcase }},
   volume={{ volume-num }},
   issue={{ issue-num }},
   pages={{ lcurly }}{{ include.article.start-page }}--{{

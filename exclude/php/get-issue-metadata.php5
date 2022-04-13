@@ -21,8 +21,6 @@ $issues = $sdrDbConn->query($query);
 while ($article = $issues->fetch_assoc()) {
   $volume = getIntValue($article["id"], "Volume");
   $issue = getIntValue($article["id"], "Issue");
-  $month = getIntValue($article["id"], "Month");
-  $year = getIntValue($article["id"], "Year");
   $urls = getValues("Text", $article["id"], "Url");
   $url = $urls->fetch_assoc();
   $files["jocse-$volume-$issue"] = $url["entry"];
@@ -35,10 +33,6 @@ END;
   $results = $cserdDbConn->query($query);
   $result = $results->fetch_assoc();
   echo "date: \"$result[pubDate]\"\n";
-  echoEducationLevels($article["id"]);
-  echo "month: $month\n";
-  echoValuesArray("Text", $article["id"], "Subject", "subjects");
-  echo "year: $year\n";
   echo "---\n";
 }
 foreach ($files as $name => $url) {

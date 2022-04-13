@@ -7,7 +7,8 @@
   {% include get-volume-issue-and-index.html item=item %}
   {% capture title %}Volume {{ volume-num }}
     Issue {{ issue-num }} &mdash;
-    {{ site.data.month-names[item.month] }} {{ item.year }}{% endcapture %}
+    {% include get-month-and-year.html date=item.date %}
+    {{ month }} {{ year }}{% endcapture %}
 {% else %}
   {% assign title = item.title %}
 {% endif %}
