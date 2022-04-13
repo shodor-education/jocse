@@ -6,7 +6,7 @@ redirect_from: "/rss/"
   <channel>
     <title>JOCSE</title>
     <description>The latest news from the Journal of Computational Science Education.</description>
-    <link>{{ site.url }}{{ site.baseurl }}</link>
+    <link>{{ "/" | absolute_url }}</link>
     <atom:link href="{{ '/rss/' | absolute_url }}" rel="self"
       type="application/rss+xml" />
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
