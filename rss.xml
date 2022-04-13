@@ -1,5 +1,5 @@
 ---
-redirect_from: "/rss/"
+redirect_to: "/rss/"
 ---
 <?xml version="1.0" encoding="UTF-8" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
@@ -7,7 +7,7 @@ redirect_from: "/rss/"
     <title>JOCSE</title>
     <description>The latest news from the Journal of Computational Science Education.</description>
     <link>{{ site.url }}{{ site.baseurl }}</link>
-    <atom:link href="{{ '/rss/' | relative_url }}" rel="self"
+    <atom:link href="{{ '/rss/' | absolute_url }}" rel="self"
       type="application/rss+xml" />
     <lastBuildDate>{{ site.time | date_to_rfc822 }}</lastBuildDate>
     <copyright>Copyright 1994-{{ "now" | date: "%Y" }}, The Shodor Education Foundation, Inc.</copyright>
@@ -18,7 +18,7 @@ redirect_from: "/rss/"
       <item>
         {% include get-volume-issue-and-index.html item=issue %}
         <title>Volume {{ volume-num }} Issue {{ issue-num }} is now available!</title>
-        {% assign url = issue.url | relative_url | replace: 'index.html', '' %}
+        {% assign url = issue.url | absolute_url | replace: 'index.html', '' %}
         <link>{{ url }}</link>
         <description>The latest issue of the Journal of Computational Science Education is now available online!</description>
         <pubDate>{{ issue.date }}</pubDate>
