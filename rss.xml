@@ -13,7 +13,7 @@ redirect_from: "/rss/"
     <copyright>Copyright 1994-{{ "now" | date: "%Y" }}, The Shodor Education Foundation, Inc.</copyright>
     <language>en-US</language>
     <generator>Jekyll v{{ jekyll.version }}</generator>
-    {% assign issues = site.issues | reverse %}
+    {% assign issues = site.issues | sort: "date" | reverse %}
     {% for issue in issues limit:10 %}
       <item>
         {% include get-volume-issue-and-index.html item=issue %}

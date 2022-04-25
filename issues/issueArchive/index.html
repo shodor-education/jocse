@@ -3,7 +3,7 @@ layout: "default"
 title: "Past Issues"
 ---
 <ol id="issues-list">
-  {% assign issues = site.issues | reverse %}
+  {% assign issues = site.issues | sort: "date" | reverse %}
   {% for issue in issues %}
     <li>
       {% include get-title.html item=issue %}
