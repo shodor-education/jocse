@@ -14,6 +14,8 @@ defaults:
       layout: "issue"
 exclude:
   - "exclude"
+# During dev, uncomment dirs below you don't need to generate — speeds up build
+#  - "downloads"
 plugins:
   - "jekyll-redirect-from"
 whitelist:
