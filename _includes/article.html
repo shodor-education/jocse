@@ -13,9 +13,10 @@
       </a>
     {% endif %}
   </h3>
-  {% if include.article.authors %}
+  {% include get-authors.html article=include.article %}
+  {% if authors %}
     <address class="authors">
-      {{ include.article.authors | array_to_sentence_string }}
+      {{ authors | array_to_sentence_string }}
     </address>
   {% endif %}
   <p class="volume-issue-date-pages">

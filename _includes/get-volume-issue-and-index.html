@@ -1,4 +1,4 @@
-{% assign url-split = include.item.url | split: "/" %}
-{% assign volume-num = url-split[2] | to_integer %}
-{% assign issue-num = url-split[3] | to_integer %}
-{% assign index = url-split[4] | to_integer %}
+{% assign url-split = include.item.url | split: "/"
+%}{% assign volume-num = url-split[2] | to_integer
+%}{% assign issue-num = url-split[3] | to_integer
+%}{% assign index = url-split[4] | to_integer %}

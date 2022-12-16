@@ -1,0 +1,12 @@
+{% assign separator = ";;"
+%}{% assign authors-str = ""
+%}{% for author in include.article.authors
+  %}{% if author.given-name and author.surname
+    %}{% assign authors-str = authors-str | append: separator
+      | append: author.given-name | append: " " | append: author.surname
+  %}{% else
+  %}{% assign authors-str = authors-str | append: separator | append: author
+  %}{% endif
+%}{% endfor
+%}{% assign authors = authors-str | remove_first: separator
+  | split: separator %}

@@ -1,22 +1,20 @@
-{% if include.issue %}
-  {% include get-volume-issue-and-index.html item=include.issue %}
-{% endif %}
-{% capture article-url-prefix %}/articles/{{ volume-num }}/{{ issue-num }}/{%
-  endcapture
-%}
-{% assign articles-unsorted = site.articles
+{% if include.issue
+  %}{% include get-volume-issue-and-index.html item=include.issue
+%}{% endif
+%}{% capture article-url-prefix
+  %}/articles/{{ volume-num }}/{{ issue-num }}/{% endcapture
+%}{% assign articles-unsorted = site.articles
   | where_exp: "item", "item.url contains article-url-prefix"
-%}
-{% assign max-index = 0 %}
-{% for article in articles-unsorted %}
-  {% include get-volume-issue-and-index.html item=article %}
-  {% if index > max-index %}
-    {% assign max-index = index %}
-  {% endif %}
-{% endfor %}
-{% assign articles = "" | split: "" %}
-{% for i in (0..max-index) %}
-  {% capture url %}{{ article-url-prefix }}{{ i }}/{% endcapture %}
-  {% assign article-in-array = articles-unsorted | where: "url", url %}
-  {% assign articles = articles | concat: article-in-array %}
-{% endfor %}
+%}{% assign max-index = 0
+%}{% for article in articles-unsorted
+  %}{% include get-volume-issue-and-index.html item=article
+  %}{% if index > max-index
+    %}{% assign max-index = index
+  %}{% endif
+%}{% endfor
+%}{% assign articles = "" | split: ""
+%}{% for i in (0..max-index)
+  %}{% capture url %}{{ article-url-prefix }}{{ i }}/{% endcapture
+  %}{% assign article-in-array = articles-unsorted | where: "url", url
+  %}{% assign articles = articles | concat: article-in-array
+%}{% endfor %}

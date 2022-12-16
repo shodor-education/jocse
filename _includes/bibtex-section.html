@@ -1,7 +1,8 @@
 {% assign lcurly = "{" %}
 {% assign rcurly = "}" %}
+{% include get-authors.html article=include.article %}
 {% capture bibtex %}@article{jocse-{{ volume-num }}-{{ issue-num }}-{{ index }},
-  author={{ lcurly }}{{ include.article.authors | join: " and " }}{{ rcurly }},
+  author={{ lcurly }}{{ authors | join: " and " }}{{ rcurly }},
   title={{ lcurly }}{{ include.article.title }}{{ rcurly }},
   journal={The Journal of Computational Science Education},
   year={{ include.year }},
