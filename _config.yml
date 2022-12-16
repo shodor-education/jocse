@@ -1,8 +1,14 @@
+collections_dir: "collections"
 collections:
   articles:
     output: true
+    permalink: "/articles/:path/"
   issues:
     output: true
+    permalink: "/issues/:path/"
+  standalone-pages:
+    output: true
+    permalink: "/:path/"
 defaults:
   - scope:
       type: "articles"

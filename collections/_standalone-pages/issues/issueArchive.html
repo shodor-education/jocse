@@ -1,0 +1,13 @@
+---
+layout: "default"
+title: "Past Issues"
+---
+<ol id="issues-list">
+  {% assign issues = site.issues | sort: "date" | reverse %}
+  {% for issue in issues %}
+    <li>
+      {% include get-title.html item=issue %}
+      <a href="{{ issue.url | relative_url }}">{{ title }}</a>
+    </li>
+  {% endfor %}
+</ol>

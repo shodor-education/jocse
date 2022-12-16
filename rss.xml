@@ -18,7 +18,7 @@ redirect_from: "/rss/"
       <item>
         {% include get-volume-issue-and-index.html item=issue %}
         <title>Volume {{ volume-num }} Issue {{ issue-num }} is now available!</title>
-        {% assign url = issue.url | absolute_url | replace: 'index.html', '' %}
+        {% assign url = issue.url | absolute_url %}
         <link>{{ url }}</link>
         <description>The latest issue of the Journal of Computational Science Education is now available online!</description>
         <pubDate>{{ issue.date }}</pubDate>

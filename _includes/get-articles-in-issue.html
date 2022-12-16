@@ -16,7 +16,7 @@
 {% endfor %}
 {% assign articles = "" | split: "" %}
 {% for i in (0..max-index) %}
-  {% capture url %}{{ article-url-prefix }}{{ i }}/index.html{% endcapture %}
+  {% capture url %}{{ article-url-prefix }}{{ i }}/{% endcapture %}
   {% assign article-in-array = articles-unsorted | where: "url", url %}
   {% assign articles = articles | concat: article-in-array %}
 {% endfor %}

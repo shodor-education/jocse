@@ -2,8 +2,7 @@
 <article class="article" {{ include.data-attributes }}>
   <h3>
     {% if include.link-title %}
-      <a href="{{ include.article.url | relative_url
-        | replace: 'index.html', ''}}">
+      <a href="{{ include.article.url | relative_url }}">
     {% endif %}
     {% if include.title %}
       {{ include.title }}
@@ -20,8 +19,7 @@
     </address>
   {% endif %}
   <p class="volume-issue-date-pages">
-    {% capture url %}/issues/{{ volume-num }}/{{ issue-num }}/index.html{%
-      endcapture %}
+    {% capture url %}/issues/{{ volume-num }}/{{ issue-num }}/{% endcapture %}
     {% assign issue = site.issues | where: "url", url | first %}
     {% include get-month-and-year.html date=issue.date %}
     {% if page.layout == "issue" %}
