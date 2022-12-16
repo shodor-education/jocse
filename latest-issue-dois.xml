@@ -23,14 +23,16 @@
   %}{% if forloop.index == 1 %}{% continue %}{% endif
 %}
 <journal_article publication_type='full_text'>
-  <titles>
-    <title>{{ article.title }}</title>
+  <titles>{% include html-entity-to-text.html input=article.title %}
+    <title>{{ html-entity-to-text }}</title>
   </titles>
   <contributors>{% for author in article.authors %}
     <person_name sequence='{% if forloop.index == 1 %}first{%
         else %}additional{% endif %}' contributor_role='author'>
-      <given_name>{{ author.given-name }}</given_name>
-      <surname>{{ author.surname }}</surname>
+      <given_name>{% include html-entity-to-text.html
+        input=author.given-name %}{{ html-entity-to-text }}</given_name>
+      <surname>{% include html-entity-to-text.html
+        input=author.surname %}{{ html-entity-to-text }}</surname>
     </person_name>{% endfor %}
   </contributors>
   <publication_date media_type='online'>
@@ -43,8 +45,8 @@
   </pages>
   <doi_data>
     <doi>10.22369/issn.2153-4136/{{ volume-num }}/{{ issue-num }}/{{
-      index }}</doi>
+      forloop.index0 }}</doi>
     <resource>http://www.jocse.org/articles/{{ volume-num }}/{{ issue-num }}/{{
-      index }}/</resource>
+      forloop.index0 }}/</resource>
   </doi_data>
 </journal_article>{% endfor %}

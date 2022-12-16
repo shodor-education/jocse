@@ -16,6 +16,7 @@
 {% capture aacute %}\\'{a}{% endcapture %}
 {% capture amp %}\\&{% endcapture %}
 {% capture auml %}\\"{a}{% endcapture %}
+{% capture eacute %}\\'{e}{% endcapture %}
 {% capture iacute %}\\'{i}{% endcapture %}
 {% capture iuml %}\\"{i}{% endcapture %}
 {% capture ndash %}\\textendash{% endcapture %}
@@ -34,6 +35,7 @@
   | replace: "&aacute;", aacute
   | replace: "&amp;", "&"
   | replace: "&auml;", auml
+  | replace: "&eacute;", eacute
   | replace: "&iacute;", iacute
   | replace: "&iuml;", iuml
   | replace: "&ndash;", ndash
