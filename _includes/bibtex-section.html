@@ -14,7 +14,6 @@
   doi={{ lcurly }}{{ doi }}{{ rcurly }}
 }{% endcapture %}
 {% capture aacute %}\\'{a}{% endcapture %}
-{% capture amp %}\\&{% endcapture %}
 {% capture auml %}\\"{a}{% endcapture %}
 {% capture eacute %}\\'{e}{% endcapture %}
 {% capture iacute %}\\'{i}{% endcapture %}
@@ -35,6 +34,7 @@
 {% capture trade %}\\texttrademark{% endcapture %}
 {% capture uacute %}\\'{u}{% endcapture %}
 {% capture uuml %}\\"{u}{% endcapture %}
+{% capture amp %}\\&{% endcapture %}
 <pre id="bibtex-{{ include.id }}">{{ bibtex
   | replace: "&aacute;", aacute
   | replace: "&amp;", "&"
