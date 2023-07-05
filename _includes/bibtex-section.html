@@ -18,15 +18,19 @@
 {% capture auml %}\\"{a}{% endcapture %}
 {% capture eacute %}\\'{e}{% endcapture %}
 {% capture iacute %}\\'{i}{% endcapture %}
+{% capture imath %}\\imath{% endcapture %}
 {% capture iuml %}\\"{i}{% endcapture %}
 {% capture ndash %}\\textendash{% endcapture %}
 {% capture mdash %}\\textemdash{% endcapture %}
+{% capture oacute %}\\'{o}{% endcapture %}
 {% capture Oacute %}\\'{O}{% endcapture %}
 {% capture omega %}\\omega{% endcapture %}
 {% capture ouml %}\\"{o}{% endcapture %}
+{% capture Ouml %}\\"{O}{% endcapture %}
 {% capture percnt %}\\%{% endcapture %}
 {% capture plusmn %}\\pm{% endcapture %}
 {% capture reg %}\\textregistered{% endcapture %}
+{% capture scedil %}\\c{s}{% endcapture %}
 {% capture szlig %}{\\ss}{% endcapture %}
 {% capture trade %}\\texttrademark{% endcapture %}
 {% capture uacute %}\\'{u}{% endcapture %}
@@ -37,15 +41,19 @@
   | replace: "&auml;", auml
   | replace: "&eacute;", eacute
   | replace: "&iacute;", iacute
+  | replace: "&imath;", imath
   | replace: "&iuml;", iuml
   | replace: "&ndash;", ndash
   | replace: "&mdash;", mdash
+  | replace: "&oacute;", oacute
   | replace: "&Oacute;", Oacute
   | replace: "&omega;", omega
   | replace: "&ouml;", ouml
+  | replace: "&Ouml;", Ouml
   | replace: "&percnt;", percnt
   | replace: "&plusmn;", plusmn
   | replace: "&reg;", reg
+  | replace: "&scedil;", scedil
   | replace: "&szlig;", szlig
   | replace: "&trade;", trade
   | replace: "&uacute;", uacute
