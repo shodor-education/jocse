@@ -19,8 +19,6 @@
       url: "/currentIssue/"
     - label: "Issue Archive"
       url: "/issues/issueArchive/"
-    - label: "Subscribe to RSS"
-      url: "/rss/"
 - label: "SUBMISSION"
   url: "/submitProcedure/"
   sublinks:
