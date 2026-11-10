@@ -19,12 +19,12 @@ alongside the neural network performs Canny edge detection and Hough line transf
 for lane tracking and pixel-density-based obstacle avoidance. Navigation decisions are
 encoded into short serial packets with CRC error checking and sent from the ESP32 to
 the Arduino, which converts them into PWM motor signals. Across 500 controlled test
-runs, the robot correctly identified signs 91.78'%'of the time under even lighting and
-69.46'%' under uneven lighting. The full decision loop from camera capture to
+runs, the robot correctly identified signs 91.78 percent of the time under even lighting and
+69.46 percent  under uneven lighting. The full decision loop from camera capture to
 motor response averaged 66.6 milliseconds. A systematic failure
 analysis across all 500 trials categorized errors into hardware, environmental, and
-software causes; five targeted fixes reduced the overall failure rate from 36.8'%' to
-11.4'%'. The project also served as a comprehensive self-directed computational
+software causes; five targeted fixes reduced the overall failure rate from 36.8 percent to
+11.4 percent. The project also served as a comprehensive self-directed computational
 science education exercise, and the paper includes a dedicated student reflection
 documenting technical lessons, methodological insights, and educational impact. All
 firmware, training data, and experimental records are publicly available for reproduction
