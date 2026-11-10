@@ -1,0 +1,43 @@
+---
+title: "Low-Cost Embedded Computer Vision and Neural Network-Enabled
+Autonomous Navigation for a Four-Wheeled Mobile Robot Using an ESP32 and
+Arduino Framework"
+authors:
+- given-name: "Abhiram"
+surname: "Kaakarla"
+start-page: 65
+end-page: 72
+abstract: "This paper presents the design, construction, and testing of a low-cost
+autonomous navigation system built on the Freenove 4WD robot car. An ESP32-CAM
+microcontroller handles image capture and onboard machine learning while an Arduino
+Uno controls the four DC motors, with all hardware costing under 103 US dollars. A
+convolutional neural network trained through Edge Impulse was compressed to an 18.2
+KB quantized model that runs directly on the ESP32, classifying 32 by 32 pixel
+grayscale camera frames into five sign categories: stop sign, left turn, right turn, T
+intersection, and forward arrow. An OpenCV image processing pipeline running
+alongside the neural network performs Canny edge detection and Hough line transform
+for lane tracking and pixel-density-based obstacle avoidance. Navigation decisions are
+encoded into short serial packets with CRC error checking and sent from the ESP32 to
+the Arduino, which converts them into PWM motor signals. Across 500 controlled test
+runs, the robot correctly identified signs 91.78'%'of the time under even lighting and
+69.46'%' under uneven lighting. The full decision loop from camera capture to
+motor response averaged 66.6 milliseconds. A systematic failure
+analysis across all 500 trials categorized errors into hardware, environmental, and
+software causes; five targeted fixes reduced the overall failure rate from 36.8'%' to
+11.4'%'. The project also served as a comprehensive self-directed computational
+science education exercise, and the paper includes a dedicated student reflection
+documenting technical lessons, methodological insights, and educational impact. All
+firmware, training data, and experimental records are publicly available for reproduction
+and improvement by other students and educators."
+keywords:
+- "convolutional neural network"
+- "edge detection"
+- "4WD Robot Car"
+subjects:
+- "Data Science"
+- "Computer Science"
+audiences:
+- "Educator"
+education-levels:
+- "High School"
+---
